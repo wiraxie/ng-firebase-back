@@ -1,6 +1,6 @@
 export class Product 
 {
-    $key: string;
+    $prdKey: string;
     prdName: string;
     prdCat: string; //category
     prdSup: string; //supplier

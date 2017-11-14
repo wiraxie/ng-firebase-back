@@ -1,7 +1,7 @@
 <h2 align="center">Product</h2>
 <div class="container">
 <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
+  <input type="hidden" name="$prdKey" #$prdKey="ngModel" [(ngModel)]="productService.selectedProduct.$prdKey">
   
   <div class="form-group">
     <label>Product Name</label>
@@ -24,7 +24,7 @@
 
   <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button> 
-    <button type="button" class="btn btn-danger" *ngIf="productService.selectedProduct.$key!=null" (click)="onDelete(productForm)">Delete</button>
+    <button type="button" class="btn btn-danger" *ngIf="productService.selectedProduct.$prdKey!=null" (click)="onDelete(productForm)">Delete</button>
   </div>
 </form>
 </div>

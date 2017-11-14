@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
       item.forEach(element => 
       {
         var y = element.payload.toJSON();
-        y["$key"] = element.key;
+        y["$prdKey"] = element.key;
         this.productList.push(y as Product);
       });
     });
@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
   onSubmit(form: NgForm) 
   {
     //fungsi insertEmployee dan update
-    if (form.value.$key == null) //jika primary key tidak ada, bikin baru
+    if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
       //this.productService.insertProduct(form.value);
       this.productService.insertProduct(this.productService.selectedProduct);
@@ -57,7 +57,7 @@ export class ProductComponent implements OnInit {
     if (form != null)
       form.reset();
     this.productService.selectedProduct = {
-      $key: null,
+      $prdKey: null,
       prdName: '',
       prdCat:'',
       prdSup:''
@@ -68,7 +68,7 @@ export class ProductComponent implements OnInit {
   {
     //fungsi deleteProduct()
     if (confirm('Are you sure to delete this record ?') == true) {
-      this.productService.deleteProduct(form.value.$key);
+      this.productService.deleteProduct(form.value.$prdKey);
       this.resetForm(form);
     }
   }

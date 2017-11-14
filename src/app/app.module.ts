@@ -21,6 +21,9 @@ import { environment } from '../environments/environment'
 //services
 import { ProductService } from './parent/product/product.service';
 import { CustomerService }  from './parent/customer/customer.service';
+import { SupplierService } from './parent/supplier/supplier.service';
+import { PenjualanService } from './parent/penjualan/penjualan.service';
+import { PembelianService } from './parent/pembelian/pembelian.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,7 @@ import { CustomerService }  from './parent/customer/customer.service';
     CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), //environtment. yg di environtment 
   ],
-  providers: [ ProductService, CustomerService ],
+  providers: [ ProductService, CustomerService, SupplierService, PenjualanService, PembelianService ],
   bootstrap: 
   [
     AppComponent,

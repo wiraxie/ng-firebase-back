@@ -42,7 +42,7 @@ export class ProductService {
   //template update
   updateProduct(prd : Product)
   {
-    this.productList.update(prd.$key,{
+    this.productList.update(prd.$prdKey,{
       prdName: prd.prdName,
       prdCat: prd.prdCat,
       prdSup: prd.prdSup,
