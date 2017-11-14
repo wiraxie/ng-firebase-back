@@ -1,21 +1,34 @@
-<button (click)="showProduct=!showProduct">Show Product</button>
+<button (click)="showProduct=!showProduct">Product</button>
+
+<button (click)="showCustomer=!showCustomer">Customer</button>
+
+<button (click)="showSupplier=!showSupplier">Supplier</button>
+
+<button (click)="showJual=!showJual">Penjualan</button>
+
+<button (click)="showBeli=!showBeli">Pembelian</button>
+
+<!--Product-->
 <div *ngIf="showProduct">
     <app-product></app-product>    
 </div>
 
-<button (click)="showCustomer=!showCustomer">Show Customer</button>
+<!--Customer-->
 <div *ngIf="showCustomer">
     <app-customer></app-customer>
 </div>
 
-<button (click)="showSupplier=!showSupplier">Show Supplier</button>
+<!--Supplier-->
 <div *ngIf="showSupplier">
     <app-supplier></app-supplier>
 </div>
 
-<button (click)="showPenjualan=!showPenjualan">Show Penjualan</button>
-<div *ngIf="showPenjualan">
+<!--Penjualan-->
+<div *ngIf="showJual">
     <app-penjualan></app-penjualan>
 </div>
 
-<app-pembelian></app-pembelian>
+<!--Pembelian-->
+<div *ngIf="showBeli">
+    <app-pembelian></app-pembelian>
+</div>
