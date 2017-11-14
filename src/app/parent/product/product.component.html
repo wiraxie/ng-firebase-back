@@ -39,7 +39,7 @@
         <th>Supplier</th>
       </tr>
 
-      <tr *ngFor="let product of productList" (click)="onItemClick(product)">
+      <tr *ngFor="let product of productList" (click)="onItemClick(product)" title="click to edit or delete">
         <td>{{product.prdName}}</td>
         <td>{{product.prdCat}}</td>
         <td>{{product.prdSup}}</td>

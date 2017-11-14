@@ -39,7 +39,7 @@
             <th>Location</th>
           </tr>
     
-          <tr *ngFor="let Supplier of supplierList" (click)="onItemClick(Supplier)">
+          <tr *ngFor="let Supplier of supplierList" (click)="onItemClick(Supplier)" title="click to edit or delete">
             <td>{{Supplier.supName}}</td>
             <td>{{Supplier.supProduct}}</td>
             <td>{{Supplier.supLocation}}</td>

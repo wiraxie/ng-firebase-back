@@ -39,7 +39,7 @@
             <th>Company</th>
           </tr>
     
-          <tr *ngFor="let Customer of customerList" (click)="onItemClick(Customer)">
+          <tr *ngFor="let Customer of customerList" (click)="onItemClick(Customer)" title="click to edit or delete">
             <td>{{Customer.cstId}}</td>
             <td>{{Customer.cstName}}</td>
             <td>{{Customer.cstCompany}}</td>

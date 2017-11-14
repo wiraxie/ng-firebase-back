@@ -39,7 +39,7 @@
         <th>Product</th>
       </tr>
 
-      <tr *ngFor="let Penjualan of penjualanList" (click)="onItemClick(Penjualan)">
+      <tr *ngFor="let Penjualan of penjualanList" (click)="onItemClick(Penjualan)" title="click to edit or delete">
         <td>{{Penjualan.cstId}}</td>
         <td>{{Penjualan.cstName}}</td>
         <td>{{Penjualan.product}}</td>
