@@ -1,0 +1,47 @@
+<h2 align="center">Customer</h2>
+<div class="container">
+    <form #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)">
+      <input type="hidden" name="$cstKey" #$cstKey="ngModel" [(ngModel)]="CustomerService.selectedCustomer.$cstKey">
+      
+      <div class="form-group">
+        <label>Customer ID</label>
+        <input class="form-control" name="cstId" #cstId="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstId">
+      </div>
+
+      <div class="form-group">
+        <label>Customer Name</label>
+        <input class="form-control" name="cstName" #cstName="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstName">
+      </div>
+    
+      <div class="form-group">
+        <label>Customer Company</label>
+          <input class="form-control" name="cstCompany" #cstCompany="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstCompany">
+      </div>
+    
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button> 
+        <button type="button" class="btn btn-danger" *ngIf="CustomerService.selectedCustomer.$cstKey!=null" (click)="onDelete(customerForm)">Delete</button>
+      </div>
+    </form>
+    </div>
+    
+    <div class="container">
+      <ul class="list-group hover">
+        <li class="list-group-item">
+        <table class="table table-striped table-responsive">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Company</th>
+          </tr>
+    
+          <tr *ngFor="let Customer of customerList" (click)="onItemClick(Customer)">
+            <td>{{Customer.cstId}}</td>
+            <td>{{Customer.cstName}}</td>
+            <td>{{Customer.cstCompany}}</td>
+            <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(customerForm)">Delete</button></td> -->
+          </tr> 
+        </table> 
+      </li>
+    </ul>
+    </div>
