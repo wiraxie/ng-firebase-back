@@ -47,11 +47,6 @@ import { PembelianService } from './parent/pembelian/pembelian.service';
   [
     AppComponent,
     ParentComponent,
-    ProductComponent,
-    CustomerComponent,
-    SupplierComponent,
-    PenjualanComponent,
-    PembelianComponent
   ]
 })
 export class AppModule { }
