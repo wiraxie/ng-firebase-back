@@ -1,0 +1,69 @@
+body {
+  background: #F1F3FA;
+}
+
+table, tr, th, td
+{
+    width: 42%;
+}
+
+input, select
+{
+    max-width: 42%;
+}
+
+#sidebar-wrapper
+{
+    z-index: 1;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    overflow-x: hidden;
+    background: rgb(28, 49, 59);
+    border: 2px solid red;
+    opacity: 0.75;
+}
+
+#page-content-wrapper
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 15px;
+    border: 5px solid green;
+}
+
+/*display*/
+#wrapper.menuDisplayed #sidebar-wrapper
+{
+    width: 77px;
+}
+
+#wrapper.menuDisplayer #page-content-wrapper
+{
+    padding-left: 210px;
+}
+
+.sidebar-nav
+{
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li
+{
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a
+{
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-nav li a:hover
+{
+    background: rgb(125, 156, 255);
+}

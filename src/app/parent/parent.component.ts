@@ -16,6 +16,9 @@ import { Pembelian } from './pembelian/pembelian';
 import { PenjualanService } from './penjualan/penjualan.service';
 import { Penjualan } from './penjualan/penjualan';
 
+declare var jquery:any;
+declare var $ :any;
+
 @Component({
   selector: 'app-parent',
   templateUrl: './parent.component.html',
@@ -32,7 +35,14 @@ export class ParentComponent implements OnInit {
   showJual:boolean = false;
   showBeli:boolean = false;
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+  
   }
 
+  SideBar()
+  {
+    $("#wrapper").toggleClass("menuDisplayed");
+  }
+  
 }
