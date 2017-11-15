@@ -4,56 +4,55 @@
 <a href="#" (click)="showJual=!showJual">Penjualan</a>
 <a href="#" (click)="showBeli=!showBeli">Pembelian</a> -->
 
-<!--testing sidebar-->
-<div id="wrapper">
-	<!--sidebar-->
-	<div id="sidebar-wrapper">
-		<ul class="sidebar-nav">
-			<a href="#" (click)="showProduct=!showProduct">Product</a>
-			<a href="#" (click)="showCustomer=!showCustomer">Customer</a>
-			<a href="#" (click)="showSupplier=!showSupplier">Supplier</a>
-			<a href="#" (click)="showJual=!showJual">Penjualan</a>
-			<a href="#" (click)="showBeli=!showBeli">Pembelian</a>
-		</ul>
+<div class="container-fluid">
+	<nav class="navbar navbar-default">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Brand</a>
+		  </div>
+	  
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li><a href="#" (click)="showProduct=!showProduct">Product</a></li>
+			  <li><a href="#" (click)="showCustomer=!showCustomer">Customer</a></li>
+			  <li><a href="#" (click)="showSupplier=!showSupplier">Supplier</a></li>
+			  <li><a href="#" (click)="showJual=!showJual">Penjualan</a></li>
+			  <li><a href="#" (click)="showBeli=!showBeli">Pembelian</a></li>
+			</ul>
+			
+		  </div><!-- /.navbar-collapse -->
+				<!-- /.container-fluid -->
+		</nav>
 	</div>
-	<!--end of sidebar-->
 
-	<!--content-->
-	<div id="page-content-wrapper">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<a href="#" class="btn btn-primary" id="menu-toggle" (click)="SideBar()">Toggle Menu</a>
-					
 					<!--Product-->
 					<div *ngIf="showProduct">
-						<app-product></app-product>    
-					</div>
-	
-					<!--Customer-->
-					<div *ngIf="showCustomer">
-						<app-customer></app-customer>
-					</div>
-					
-					<!--Supplier-->
-					<div *ngIf="showSupplier">
-						<app-supplier></app-supplier>
-					</div>
-					
-					<!--Penjualan-->
-					<div *ngIf="showJual">
-						<app-penjualan></app-penjualan>
-					</div>
-					
-					<!--Pembelian-->
-					<div *ngIf="showBeli">
-						<app-pembelian></app-pembelian>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--end of content-->
-</div>
-<!--testing sidebar-->
+							<app-product></app-product>    
+						</div>
+		
+						<!--Customer-->
+						<div *ngIf="showCustomer">
+							<app-customer></app-customer>
+						</div>
+						
+						<!--Supplier-->
+						<div *ngIf="showSupplier">
+							<app-supplier></app-supplier>
+						</div>
+						
+						<!--Penjualan-->
+						<div *ngIf="showJual">
+							<app-penjualan></app-penjualan>
+						</div>
+						
+						<!--Pembelian-->
+						<div *ngIf="showBeli">
+							<app-pembelian></app-pembelian>
+						</div>

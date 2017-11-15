@@ -40,9 +40,17 @@ export class ParentComponent implements OnInit {
   
   }
 
-  SideBar()
+  // SideBar()
+  // {
+  //   $("#wrapper").toggleClass("menuDisplayed");
+  // }
+
+  if( showProduct = true)
   {
-    $("#wrapper").toggleClass("menuDisplayed");
+    this.showCustomer = false;
+    this.showSupplier = false;
+    this.showJual = false;
+    this.showBeli = false;
   }
   
 }
