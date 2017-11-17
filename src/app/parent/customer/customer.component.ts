@@ -11,13 +11,15 @@ import { Customer } from './customer'; //class
   encapsulation: ViewEncapsulation.None
 })
 export class CustomerComponent implements OnInit {
-  
+
     //class Customer
     customerList: Customer[];
   
     //after import masukkan ke constructor
     constructor(private CustomerService: CustomerService) { }
   
+    p:number = 1;
+
     ngOnInit() 
     {
       //template

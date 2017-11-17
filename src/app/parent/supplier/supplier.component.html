@@ -56,7 +56,7 @@
             <th>Location</th>
           </tr>
     
-          <tr *ngFor="let Supplier of supplierList">
+          <tr *ngFor="let Supplier of supplierList | paginate: { itemsPerPage: 1, currentPage: p }">
             <td>{{Supplier.supName}}</td>
             <td>{{Supplier.supProduct}}</td>
             <td>{{Supplier.supLocation}}</td>
@@ -64,6 +64,7 @@
             <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(supplierForm)">Delete</button></td> -->
           </tr> 
         </table> 
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </li>
     </ul>
     </div>

@@ -55,14 +55,15 @@
         <th>Supplier</th>
       </tr>
 
-      <tr *ngFor="let product of productList">
+      <tr *ngFor="let product of productList | paginate: { itemsPerPage: 1, currentPage: p }">
         <td>{{product.prdName}}</td>
         <td>{{product.prdCat}}</td>
         <td>{{product.prdSup}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(product)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update/Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(productForm)">Delete</button></td> -->
-      </tr> 
-    </table> 
+      </tr>     
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>   
   </li>
 </ul>
 </div>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //import ang. firebase module
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -40,6 +41,7 @@ import { PembelianService } from './parent/pembelian/pembelian.service';
     AngularFireDatabaseModule,
     FormsModule,
     CustomFormsModule,
+    NgxPaginationModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), //environtment. yg di environtment 
   ],
   providers: [ ProductService, CustomerService, SupplierService, PenjualanService, PembelianService ],

@@ -10,13 +10,14 @@
         <th>Product</th>
       </tr>
 
-      <tr *ngFor="let Pembelian of pembelianList">
+      <tr *ngFor="let Pembelian of pembelianList | paginate: { itemsPerPage: 1, currentPage: p }">
         <td>{{Pembelian.supName}}</td>
         <td>{{Pembelian.product}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Pembelian)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update/Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(pembelianForm)">Delete</button></td> -->
       </tr> 
     </table> 
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </li>
 </ul>
 </div>

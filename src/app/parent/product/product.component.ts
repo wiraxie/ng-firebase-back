@@ -18,6 +18,8 @@ export class ProductComponent implements OnInit {
   //after import masukkan ke constructor
   constructor(private productService: ProductService) { }
 
+  p:number = 1;
+
   ngOnInit() 
   {
     //template

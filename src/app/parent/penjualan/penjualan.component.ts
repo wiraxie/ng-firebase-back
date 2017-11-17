@@ -18,6 +18,8 @@ export class PenjualanComponent implements OnInit {
     //after import masukkan ke constructor
     constructor(private PenjualanService: PenjualanService) { }
   
+    p:number = 1;
+
     ngOnInit() 
     {
       //template
