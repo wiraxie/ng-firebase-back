@@ -25,6 +25,7 @@ import { CustomerService }  from './parent/customer/customer.service';
 import { SupplierService } from './parent/supplier/supplier.service';
 import { PenjualanService } from './parent/penjualan/penjualan.service';
 import { PembelianService } from './parent/pembelian/pembelian.service';
+import { FilterPipe } from './parent/product/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PembelianService } from './parent/pembelian/pembelian.service';
     CustomerComponent,
     SupplierComponent,
     PenjualanComponent,
-    PembelianComponent
+    PembelianComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
