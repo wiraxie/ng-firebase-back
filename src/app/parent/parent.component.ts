@@ -29,7 +29,7 @@ export class ParentComponent implements OnInit {
 
   constructor() { }
 
-  showProduct:boolean = false;
+  showProduct:boolean = true;
   showCustomer:boolean = false;
   showSupplier:boolean = false;
   showJual:boolean = false;
@@ -44,13 +44,5 @@ export class ParentComponent implements OnInit {
   // {
   //   $("#wrapper").toggleClass("menuDisplayed");
   // }
-
-  if( showProduct = true)
-  {
-    this.showCustomer = false;
-    this.showSupplier = false;
-    this.showJual = false;
-    this.showBeli = false;
-  }
   
 }

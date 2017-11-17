@@ -29,7 +29,7 @@ export class PembelianComponent implements OnInit {
         item.forEach(element => 
         {
           var y = element.payload.toJSON();
-          y["beliKey"] = element.key;
+          y["$beliKey"] = element.key;
           this.pembelianList.push(y as Pembelian);
         });
       });
@@ -38,7 +38,7 @@ export class PembelianComponent implements OnInit {
     onSubmit(form: NgForm) 
     {
       //fungsi insertEmployee dan update
-      if (form.value.beliKey == null) //jika primary key tidak ada, bikin baru
+      if (form.value.$beliKey == null) //jika primary key tidak ada, bikin baru
       {
         //this.PembelianService.insertPembelian(form.value);
         this.PembelianService.insertPembelian(this.PembelianService.selectedPembelian);
@@ -58,7 +58,7 @@ export class PembelianComponent implements OnInit {
         form.reset();
       this.PembelianService.selectedPembelian = {
         $beliKey: null,
-        supName:'',
+        supName: '',
         product:'',
       }
     }

@@ -1,2 +1,142 @@
-<app-parent></app-parent>
+<body class="hold-transition skin-blue sidebar-mini">
+        <div>
+          <header class="main-header">
+            <!-- Logo -->
+            <a href="#" class="logo" (click)="showProduct=!showProduct; showCustomer=false; showSupplier=false; showJual=false; showBeli=false">
+              <!-- logo for regular state and mobile devices -->
+              <span class="logo-lg">LOGO</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+              <div class="container-fluid" id="navbar">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" (click)="pushMenu=!pushMenu">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+              </div>
+            </nav>
+          </header>
+          <!-- Left side column. contains the logo and sidebar -->
+          <aside class="main-sidebar" *ngIf="!pushMenu">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+             
+              <!-- sidebar menu: : style can be found in sidebar.less -->
+              <div id="push-menu">
+              <ul class="sidebar-menu" data-widget="tree">
+                <li class="header"><b>MAIN NAVIGATION </b></li>
+                
+                <li (click)="showProduct=!showProduct; showCustomer=false; showSupplier=false; showJual=false; showBeli=false">
+                  <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Product</span>
+                  </a>
+                </li>
 
+                <li (click)="showSupplier=!showSupplier; showProduct=true; showCustomer=false; showJual=false; showBeli=false">
+                  <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Supplier</span>
+                  </a>
+                </li>
+
+                <li (click)="showCustomer=!showCustomer; showProduct=true; showSupplier=false; showJual=false; showBeli=false">
+                  <a href="#">
+                    <i class="fa fa-th"></i> <span>Customer</span>
+                    <span class="pull-right-container">
+                    </span>
+                  </a>
+                </li>
+
+                <li (click)="showJual=!showJual; showProduct=true; showSupplier=false; showCustomer=false; showBeli=false">
+                  <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span >Penjualan</span>
+                  </a>
+                </li>
+
+                <li (click)="showBeli=!showBeli; showProduct=true; showSupplier=false; showCustomer=false; showJual=false">
+                  <a href="#">
+                    <i class="fa fa-laptop"></i>
+                    <span >Pembelian</span>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+            </section>
+            <!-- /.sidebar -->
+          </aside>
+        
+          <!-- Content Wrapper. Contains page content -->
+            <section class="col-lg-5 connectedSortable">
+              <div class="container">
+                <app-parent></app-parent>
+                            
+                        <!--Product-->
+                        <div *ngIf="!showProduct" align="center">
+                            <app-product></app-product>    
+                        </div>
+                    
+                        <!--Customer-->
+                        <div *ngIf="showCustomer" align="center">
+                            <app-customer></app-customer>
+                        </div>
+                                
+                        <!--Supplier-->
+                        <div *ngIf="showSupplier" align="center">
+                            <app-supplier></app-supplier>
+                        </div>
+                    
+                        <!--Penjualan-->
+                        <div *ngIf="showJual" align="center">
+                            <app-penjualan></app-penjualan>
+                        </div>
+                    
+                        <!--Pembelian-->
+                        <div *ngIf="showBeli" align="center">
+                            <app-pembelian></app-pembelian>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- right col -->
+              </div>
+              <!-- /.row (main row) -->
+            <!-- /.content -->
+        
+        <!-- jQuery 3 -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+          $.widget.bridge('uibutton', $.ui.button);
+        </script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Morris.js charts -->
+        <script src="assets/bower_components/raphael/raphael.min.js"></script>
+        <script src="assets/bower_components/morris.js/morris.min.js"></script>
+        <!-- Sparkline -->
+        <script src="assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+        <!-- jvectormap -->
+        <script src="assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="assets/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="assets/bower_components/moment/min/moment.min.js"></script>
+        <script src="assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+        <!-- Slimscroll -->
+        <script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="assets/dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="assets/dist/js/pages/dashboard.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="assets/dist/js/demo.js"></script>
+</body>

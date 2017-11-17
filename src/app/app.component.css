@@ -1,0 +1,20 @@
+.main-sidebar
+{
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    overflow-x: hidden;
+    /* opacity: 0.9; */
+    border: 2px solid #000000;
+}
+
+.navbar-static-top
+{
+    min-width: 100%;
+    width: 100%;
+}
+#navbar
+{
+    min-width: 100%;
+    width:100%
+}

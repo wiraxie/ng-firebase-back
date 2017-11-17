@@ -1,2 +1,13 @@
 li 
 { cursor: pointer; }
+
+input, select
+{
+    max-width: 42%;
+}
+
+#beliContainer
+{
+    width: 70%;
+    max-width: 70%;
+}
