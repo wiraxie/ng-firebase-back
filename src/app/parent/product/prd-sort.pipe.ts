@@ -27,5 +27,4 @@ export class PrdSortPipe implements PipeTransform {
        
       });
     }
-
 } 

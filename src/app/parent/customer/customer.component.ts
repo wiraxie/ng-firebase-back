@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { CustomerService } from './customer.service'; //service
 import { Customer } from './customer'; //class
 import { CustomerPipe } from './customer.pipe';
+import { CstSortPipe } from './cst-sort.pipe';
 
 @Component({
   selector: 'app-customer',
@@ -80,6 +81,18 @@ export class CustomerComponent implements OnInit {
     {
       this.CustomerService.selectedCustomer = Object.assign({}, cst);
     }
+
+  //sorting//
+  isDesc: boolean = false;
+  //column: string = 'CategoryName';
+  column: string = "cstName";
+  records = this.CustomerService.customerList
+  direction: number;
+  sort(property){
+    this.isDesc = !this.isDesc; //change the direction    
+    this.column = property;
+    this.direction = this.isDesc ? 1 : -1;
+    };
   
   }
   

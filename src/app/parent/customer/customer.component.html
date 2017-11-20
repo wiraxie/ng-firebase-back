@@ -55,12 +55,20 @@
 
         <table class="table table-striped table-responsive">
           <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Company</th>
+            <th (click)="sort('cstId')">
+            <i class="fa" [ngClass]="{'fa-sort': column != 'cstId', 'fa-sort-asc': (column == 'cstId' && isDesc), 'fa-sort-desc': (column == 'cstId' && !isDesc) }" aria-hidden="true"></i> 
+            Id</th>
+
+            <th (click)="sort('cstName')">
+            <i class="fa" [ngClass]="{'fa-sort': column != 'cstName', 'fa-sort-asc': (column == 'cstName' && isDesc), 'fa-sort-desc': (column == 'cstName' && !isDesc) }" aria-hidden="true"></i> 
+            Name</th>
+
+            <th (click)="sort('cstCompany')">
+            <i class="fa" [ngClass]="{'fa-sort': column != 'cstCompany', 'fa-sort-asc': (column == 'cstCompany' && isDesc), 'fa-sort-desc': (column == 'cstCompany' && !isDesc) }" aria-hidden="true"></i> 
+            Company</th>
           </tr>
     
-          <tr *ngFor="let Customer of customerList | customer: term | paginate: { itemsPerPage: 3, currentPage: p }">
+          <tr *ngFor="let Customer of customerList | customer: term | cstSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
             <td>{{Customer.cstId}}</td>
             <td>{{Customer.cstName}}</td>
             <td>{{Customer.cstCompany}}</td>

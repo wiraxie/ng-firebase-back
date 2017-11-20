@@ -37,6 +37,7 @@ import { PembelianPipe } from './parent/pembelian/pembelian.pipe';
 //pipe sort table
 import { PrdSortPipe } from './parent/product/prd-sort.pipe';
 import { SupSortPipe } from './parent/supplier/sup-sort.pipe';
+import { CstSortPipe } from './parent/customer/cst-sort.pipe';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { SupSortPipe } from './parent/supplier/sup-sort.pipe';
     PembelianPipe,
     PrdSortPipe,
     SupSortPipe,
+    CstSortPipe,
   ],
   imports: [
     BrowserModule,
