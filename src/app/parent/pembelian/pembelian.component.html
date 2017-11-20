@@ -49,11 +49,16 @@
 
     <table class="table table-striped table-responsive">
       <tr>
-        <th>Supplier Name</th>
-        <th>Product</th>
+        <th (click)="sort('supName')">
+        <i class="fa" [ngClass]="{'fa-sort': column != 'supName', 'fa-sort-asc': (column == 'supName' && isDesc), 'fa-sort-desc': (column == 'supName' && !isDesc) }" aria-hidden="true"></i> 
+        Supplier Name</th>
+
+        <th (click)="sort('product')">
+        <i class="fa" [ngClass]="{'fa-sort': column != 'product', 'fa-sort-asc': (column == 'product' && isDesc), 'fa-sort-desc': (column == 'product' && !isDesc) }" aria-hidden="true"></i> 
+        Product</th>
       </tr>
 
-      <tr *ngFor="let Pembelian of pembelianList | pembelian: term | paginate: { itemsPerPage: 3, currentPage: p }">
+      <tr *ngFor="let Pembelian of pembelianList | pembelian: term | beliSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
         <td>{{Pembelian.supName}}</td>
         <td>{{Pembelian.product}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Pembelian)" data-toggle="modal" data-target="#myModal">Update</button></td>

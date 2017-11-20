@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { PembelianService } from './pembelian.service'; //service
 import { Pembelian } from './pembelian'; //class
 import { PembelianPipe } from './pembelian.pipe';
+import { BeliSortPipe } from './beli-sort.pipe';
 
 @Component({
   selector: 'app-pembelian',
@@ -79,6 +80,16 @@ export class PembelianComponent implements OnInit {
     {
       this.PembelianService.selectedPembelian = Object.assign({}, Pembelian);
     }
-  
+
+  //sorting//
+  isDesc: boolean = false;
+  column: string = "prdName";
+  records = this.PembelianService.pembelianList
+  direction: number;
+  sort(property){
+    this.isDesc = !this.isDesc; //change the direction    
+    this.column = property;
+    this.direction = this.isDesc ? 1 : -1;
+    };
   }
   
