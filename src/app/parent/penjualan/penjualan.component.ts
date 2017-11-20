@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { PenjualanService } from './penjualan.service'; //service
 import { Penjualan } from './penjualan'; //class
 import { PenjualanPipe } from  './penjualan.pipe';
+import { JualSortPipe } from './jual-sort.pipe';
 
 @Component({
   selector: 'app-penjualan',
@@ -80,6 +81,17 @@ export class PenjualanComponent implements OnInit {
     {
       this.PenjualanService.selectedPenjualan = Object.assign({}, Penjualan);
     }
+
+  //sorting//
+  isDesc: boolean = false;
+  column: string = "cstName";
+  records = this.PenjualanService.penjualanList
+  direction: number;
+  sort(property){
+    this.isDesc = !this.isDesc; //change the direction    
+    this.column = property;
+    this.direction = this.isDesc ? 1 : -1;
+    };
   
   }
   

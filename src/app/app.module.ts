@@ -38,6 +38,8 @@ import { PembelianPipe } from './parent/pembelian/pembelian.pipe';
 import { PrdSortPipe } from './parent/product/prd-sort.pipe';
 import { SupSortPipe } from './parent/supplier/sup-sort.pipe';
 import { CstSortPipe } from './parent/customer/cst-sort.pipe';
+import { JualSortPipe } from './parent/penjualan/jual-sort.pipe';
+import { BeliSortPipe } from './parent/pembelian/beli-sort.pipe';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { CstSortPipe } from './parent/customer/cst-sort.pipe';
     PrdSortPipe,
     SupSortPipe,
     CstSortPipe,
+    JualSortPipe,
+    BeliSortPipe,
   ],
   imports: [
     BrowserModule,

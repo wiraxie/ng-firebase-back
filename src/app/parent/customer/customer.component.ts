@@ -84,7 +84,6 @@ export class CustomerComponent implements OnInit {
 
   //sorting//
   isDesc: boolean = false;
-  //column: string = 'CategoryName';
   column: string = "cstName";
   records = this.CustomerService.customerList
   direction: number;

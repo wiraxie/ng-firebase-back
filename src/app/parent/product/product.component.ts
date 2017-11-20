@@ -85,7 +85,6 @@ export class ProductComponent implements OnInit {
 
   //sorting//
   isDesc: boolean = false;
-  //column: string = 'CategoryName';
   column: string = "prdName";
   records = this.ProductService.productList
   direction: number;
