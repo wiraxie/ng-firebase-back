@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { SupplierService } from './supplier.service';
 import { Supplier } from './supplier';
 import { SupplierPipe } from './supplier.pipe';
+import { SupSortPipe } from './sup-sort.pipe';
 
 @Component({
   selector: 'app-supplier',
@@ -79,6 +80,17 @@ export class SupplierComponent implements OnInit {
     onItemClick(sup : Supplier)
     {
       this.SupplierService.selectedSupplier = Object.assign({}, sup);
+    }
+
+    //sort
+    records = this.SupplierService.supplierList;
+    isDesc: boolean = false;
+    column: string = 'supName';
+    direction: number;
+    sort(property){
+        this.isDesc = !this.isDesc; //change the direction    
+        this.column = property;
+        this.direction = this.isDesc ? 1 : -1;
     }
   
   }
