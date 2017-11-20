@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { SupplierService } from './supplier.service';
 import { Supplier } from './supplier';
+import { SupplierPipe } from './supplier.pipe';
 
 @Component({
   selector: 'app-supplier',

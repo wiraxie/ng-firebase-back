@@ -49,7 +49,7 @@
   <ul class="list-group hover">
     <li class="list-group-item">
 
-    <form id="filter">
+    <form id="Filter">
       <input type="text" class="form-control" name="term" [(ngModel)]="term" placeholder="filter by name" />
     </form>
 
@@ -60,11 +60,12 @@
         <th>Supplier</th>
       </tr>
 
-      <tr *ngFor="let product of productList | paginate: { itemsPerPage: 1, currentPage: p } | filter: term">
+      <tr *ngFor="let product of productList | paginate: { itemsPerPage: 1, currentPage: p } | product: term">
         <td>{{product.prdName}}</td>
         <td>{{product.prdCat}}</td>
         <td>{{product.prdSup}}</td>
-      <td><button type="button" class="btn btn-warning" (click)="onItemClick(product)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update/Delete</button></td>
+        <td><button type="button" class="btn btn-warning" (click)="onItemClick(product)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update</button></td>
+        <td><button type="button" class="btn btn-danger">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(productForm)">Delete</button></td> -->
       </tr>     
     </table>

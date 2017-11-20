@@ -42,16 +42,22 @@
 <div class="container" id="beliContainer">
   <ul class="list-group hover">
     <li class="list-group-item">
+
+    <form id="filter">
+      <input type="text" name="term" [(ngModel)]="term" placeholder="filter by name"/> 
+    </form>
+
     <table class="table table-striped table-responsive">
       <tr>
         <th>Supplier Name</th>
         <th>Product</th>
       </tr>
 
-      <tr *ngFor="let Pembelian of pembelianList | paginate: { itemsPerPage: 1, currentPage: p }">
+      <tr *ngFor="let Pembelian of pembelianList | paginate: { itemsPerPage: 1, currentPage: p } | pembelian: term">
         <td>{{Pembelian.supName}}</td>
         <td>{{Pembelian.product}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Pembelian)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update/Delete</button></td>
+        <td><button type="button" class="btn btn-danger" >Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(pembelianForm)">Delete</button></td> -->
       </tr> 
     </table> 

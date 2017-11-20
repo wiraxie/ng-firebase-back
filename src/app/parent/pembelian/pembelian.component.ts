@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { PembelianService } from './pembelian.service'; //service
 import { Pembelian } from './pembelian'; //class
+import { PembelianPipe } from './pembelian.pipe';
 
 @Component({
   selector: 'app-pembelian',

@@ -3,8 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { ProductService } from './product.service'; //service
 import { Product } from './product'; //class
-import { FilterPipe } from './filter.pipe';
-//import { filter } from 'rxjs/operator/filter';
+import { ProductPipe } from './product.pipe';
 
 @Component({
   selector: 'app-product',

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { CustomerService } from './customer.service'; //service
 import { Customer } from './customer'; //class
+import { CustomerPipe } from './customer.pipe';
 
 @Component({
   selector: 'app-customer',

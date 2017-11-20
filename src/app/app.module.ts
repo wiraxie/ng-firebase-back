@@ -25,7 +25,14 @@ import { CustomerService }  from './parent/customer/customer.service';
 import { SupplierService } from './parent/supplier/supplier.service';
 import { PenjualanService } from './parent/penjualan/penjualan.service';
 import { PembelianService } from './parent/pembelian/pembelian.service';
-import { FilterPipe } from './parent/product/filter.pipe';
+
+//dari pipe baru
+import { ProductPipe } from './parent/product/product.pipe';
+import { SupplierPipe } from './parent/supplier/supplier.pipe';
+import { CustomerPipe } from './parent/customer/customer.pipe';
+import { PenjualanPipe } from './parent/penjualan/penjualan.pipe';
+import { PembelianPipe } from './parent/pembelian/pembelian.pipe';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +43,13 @@ import { FilterPipe } from './parent/product/filter.pipe';
     SupplierComponent,
     PenjualanComponent,
     PembelianComponent,
-    FilterPipe
+
+    //pipe baru
+    ProductPipe,
+    SupplierPipe,
+    CustomerPipe,
+    PenjualanPipe,
+    PembelianPipe,
   ],
   imports: [
     BrowserModule,

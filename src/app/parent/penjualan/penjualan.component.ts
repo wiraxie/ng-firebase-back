@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { PenjualanService } from './penjualan.service'; //service
 import { Penjualan } from './penjualan'; //class
+import { PenjualanPipe } from  './penjualan.pipe';
 
 @Component({
   selector: 'app-penjualan',

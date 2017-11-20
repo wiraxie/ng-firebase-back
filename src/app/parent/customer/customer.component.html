@@ -48,6 +48,11 @@
     <div class="container" id="cstContainer">
       <ul class="list-group hover">
         <li class="list-group-item">
+
+        <form id="filter">
+          <input type="text" class="form-control" name="term" [(ngModel)]="term" placeholder="filter by name" />
+        </form>
+
         <table class="table table-striped table-responsive">
           <tr>
             <th>Id</th>
@@ -55,11 +60,12 @@
             <th>Company</th>
           </tr>
     
-          <tr *ngFor="let Customer of customerList | paginate: { itemsPerPage: 1, currentPage: p }">
+          <tr *ngFor="let Customer of customerList | paginate: { itemsPerPage: 1, currentPage: p } | customer: term">
             <td>{{Customer.cstId}}</td>
             <td>{{Customer.cstName}}</td>
             <td>{{Customer.cstCompany}}</td>
-            <td><button type="button" class="btn btn-warning" (click)="onItemClick(Customer)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update/Delete</button></td>
+            <td><button type="button" class="btn btn-warning" (click)="onItemClick(Customer)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
             <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(customerForm)">Delete</button></td> -->
           </tr> 
         </table> 
