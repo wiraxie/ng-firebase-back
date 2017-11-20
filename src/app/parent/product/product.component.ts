@@ -15,6 +15,7 @@ import { PrdSortPipe } from './prd-sort.pipe';
 export class ProductComponent implements OnInit {
 
   //class Product
+  //productList: Product[];
   productList: Product[] = [];
 
   //after import masukkan ke constructor
@@ -86,11 +87,12 @@ export class ProductComponent implements OnInit {
   isDesc: boolean = false;
   //column: string = 'CategoryName';
   column: string = "prdName";
-  records = this.productList
+  records = this.ProductService.productList
+  direction: number;
   sort(property){
     this.isDesc = !this.isDesc; //change the direction    
     this.column = property;
-    let direction = this.isDesc ? 1 : -1;
+    this.direction = this.isDesc ? 1 : -1;
     };
 };
 

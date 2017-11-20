@@ -68,7 +68,7 @@
         Supplier</th>
       </tr>
 
-      <tr *ngFor="let product of productList | product: term | paginate: { itemsPerPage: 3, currentPage: p } | orderBy: order : expression : reverse : caseInsensitive">
+      <tr *ngFor="let product of productList | product: term | prdSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
         <td>{{product.prdName}}</td>
         <td>{{product.prdCat}}</td>
         <td>{{product.prdSup}}</td>
