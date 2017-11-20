@@ -13,16 +13,16 @@
       <div class="modal-body">
 
           <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-            <input type="hidden" name="$prdKey" #$prdKey="ngModel" [(ngModel)]="productService.selectedProduct.$prdKey">
+            <input type="hidden" name="$prdKey" #$prdKey="ngModel" [(ngModel)]="ProductService.selectedProduct.$prdKey">
             
             <div class="form-group">
               <label>Product Name</label>
-              <input class="form-control" name="prdName" #prdName="ngModel" [(ngModel)]="productService.selectedProduct.prdName">
+              <input class="form-control" name="prdName" #prdName="ngModel" [(ngModel)]="ProductService.selectedProduct.prdName">
             </div>
           
             <div>
             <label>Product Category:</label>
-            <select #category="ngModel" name="prdCategory" [(ngModel)]="productService.selectedProduct.prdCat" class="form-control">
+            <select #category="ngModel" name="prdCategory" [(ngModel)]="ProductService.selectedProduct.prdCat" class="form-control">
               <option value="Liquid">Liquid</option>
               <option value="Solid">Solid</option>
               <option value="Gas">Gas</option>  
@@ -31,12 +31,12 @@
           
             <div class="form-group">
               <label>Supplier</label>
-                <input class="form-control" name="prdSup" #supplier="ngModel" [(ngModel)]="productService.selectedProduct.prdSup" placeholder="supplier">
+                <input class="form-control" name="prdSup" #supplier="ngModel" [(ngModel)]="ProductService.selectedProduct.prdSup" placeholder="supplier">
             </div>
           
             <div class="form-group">
               <button type="submit" class="btn btn-primary">Submit</button> 
-              <button type="button" class="btn btn-danger" *ngIf="productService.selectedProduct.$prdKey!=null" (click)="onDelete(productForm)">Delete</button>
+              <!-- <button type="button" class="btn btn-danger" *ngIf="ProductService.selectedProduct.$prdKey!=null" (click)="onDelete(productForm)">Delete</button> -->
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </form>
@@ -55,17 +55,17 @@
 
     <table class="table table-striped table-responsive">
       <tr>
-        <th>Name</th>
+        <th>Name</th> 
         <th>Category</th>
         <th>Supplier</th>
       </tr>
 
-      <tr *ngFor="let product of productList | paginate: { itemsPerPage: 1, currentPage: p } | product: term">
+      <tr *ngFor="let product of productList | paginate: { itemsPerPage: 3, currentPage: p } | product: term">
         <td>{{product.prdName}}</td>
         <td>{{product.prdCat}}</td>
         <td>{{product.prdSup}}</td>
-        <td><button type="button" class="btn btn-warning" (click)="onItemClick(product)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update</button></td>
-        <td><button type="button" class="btn btn-danger">Delete</button></td>
+        <td><button type="button" class="btn btn-warning" (click)="onItemClick(product)" data-toggle="modal" data-target="#myModal">Update</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="onDelete(ProductService.selectedProduct.$prdKey)">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(productForm)">Delete</button></td> -->
       </tr>     
     </table>

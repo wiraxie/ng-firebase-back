@@ -59,11 +59,11 @@
         <th>Product</th>
       </tr>
 
-      <tr *ngFor="let Penjualan of penjualanList | paginate: { itemsPerPage: 1, currentPage: p } | penjualan: term">
+      <tr *ngFor="let Penjualan of penjualanList | paginate: { itemsPerPage: 3, currentPage: p } | penjualan: term">
         <td>{{Penjualan.cstId}}</td>
         <td>{{Penjualan.cstName}}</td>
         <td>{{Penjualan.product}}</td>
-        <td><button type="button" class="btn btn-warning" (click)="onItemClick(Penjualan)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update/Delete</button></td>
+        <td><button type="button" class="btn btn-warning" (click)="onItemClick(Penjualan)" data-toggle="modal" data-target="#myModal">Update</button></td>
         <td><button type="button" class="btn btn-danger">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(penjualanForm)">Delete</button></td> -->
       </tr> 

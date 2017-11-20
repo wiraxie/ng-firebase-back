@@ -60,11 +60,11 @@
             <th>Company</th>
           </tr>
     
-          <tr *ngFor="let Customer of customerList | paginate: { itemsPerPage: 1, currentPage: p } | customer: term">
+          <tr *ngFor="let Customer of customerList | paginate: { itemsPerPage: 3, currentPage: p } | customer: term">
             <td>{{Customer.cstId}}</td>
             <td>{{Customer.cstName}}</td>
             <td>{{Customer.cstCompany}}</td>
-            <td><button type="button" class="btn btn-warning" (click)="onItemClick(Customer)" title="click to edit or delete" data-toggle="modal" data-target="#myModal">Update</button></td>
+            <td><button type="button" class="btn btn-warning" (click)="onItemClick(Customer)" data-toggle="modal" data-target="#myModal">Update</button></td>
             <td><button type="button" class="btn btn-danger">Delete</button></td>
             <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(customerForm)">Delete</button></td> -->
           </tr> 

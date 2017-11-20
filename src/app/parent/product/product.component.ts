@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
   productList: Product[];
 
   //after import masukkan ke constructor
-  constructor(private productService: ProductService) { }
+  constructor(private ProductService: ProductService) { }
 
   p:number = 1;
 
@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
   {
     //template
     //getData dipanggil untuk view list
-    var x = this.productService.getData();
+    var x = this.ProductService.getData();
     x.snapshotChanges().subscribe(item => 
     {
       this.productList = [];
@@ -43,13 +43,13 @@ export class ProductComponent implements OnInit {
     //fungsi insertEmployee dan update
     if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
-      //this.productService.insertProduct(form.value);
-      this.productService.insertProduct(this.productService.selectedProduct);
+      //this.ProductService.insertProduct(form.value);
+      this.ProductService.insertProduct(this.ProductService.selectedProduct);
     }
     else //jika primary key ada update existing
     {
-      //this.productService.updateProduct(form.value);
-      this.productService.updateProduct(this.productService.selectedProduct);
+      //this.ProductService.updateProduct(form.value);
+      this.ProductService.updateProduct(this.ProductService.selectedProduct);
     }
     this.resetForm(form);
   }
@@ -59,7 +59,7 @@ export class ProductComponent implements OnInit {
     //fungsi reset
     if (form != null)
       form.reset();
-    this.productService.selectedProduct = {
+    this.ProductService.selectedProduct = {
       $prdKey: null,
       prdName: '',
       prdCat:'',
@@ -67,18 +67,17 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  onDelete(form: NgForm) 
-  {
-    //fungsi deleteProduct()
+ onDelete($prdKey: string) 
+ {
     if (confirm('Are you sure to delete this record ?') == true) {
-      this.productService.deleteProduct(form.value.$prdKey);
-      this.resetForm(form);
+      this.ProductService.deleteProduct($prdKey);
+      //this.resetForm(form);
     }
-  }
+ }
 
   onItemClick(prd : Product)
   {
-    this.productService.selectedProduct = Object.assign({}, prd);
+    this.ProductService.selectedProduct = Object.assign({}, prd);
   }
 
 }
