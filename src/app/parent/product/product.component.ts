@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, OnDestroy, HostListener, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { ProductService } from './product.service'; //service
 import { Product } from './product'; //class
 import { ProductPipe } from './product.pipe';
+import { PrdSortPipe } from './prd-sort.pipe';
 
 @Component({
   selector: 'app-product',
@@ -14,12 +15,13 @@ import { ProductPipe } from './product.pipe';
 export class ProductComponent implements OnInit {
 
   //class Product
-  productList: Product[];
+  productList: Product[] = [];
 
   //after import masukkan ke constructor
   constructor(private ProductService: ProductService) { }
 
-  p:number = 1;
+  p:number = 1; //utk page
+  order: string = 'prdName';
 
   ngOnInit() 
   {
@@ -80,4 +82,15 @@ export class ProductComponent implements OnInit {
     this.ProductService.selectedProduct = Object.assign({}, prd);
   }
 
-}
+  //sorting//
+  isDesc: boolean = false;
+  //column: string = 'CategoryName';
+  column: string = "prdName";
+  records = this.productList
+  sort(property){
+    this.isDesc = !this.isDesc; //change the direction    
+    this.column = property;
+    let direction = this.isDesc ? 1 : -1;
+    };
+};
+

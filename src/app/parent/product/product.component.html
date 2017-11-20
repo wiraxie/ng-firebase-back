@@ -55,12 +55,20 @@
 
     <table class="table table-striped table-responsive">
       <tr>
-        <th>Name</th> 
-        <th>Category</th>
-        <th>Supplier</th>
+        <th (click)="sort('prdName')">
+        <i class="fa" [ngClass]="{'fa-sort': column != 'prdName', 'fa-sort-asc': (column == 'prdName' && isDesc), 'fa-sort-desc': (column == 'prdName' && !isDesc) }" aria-hidden="true"></i> 
+        Name</th>
+         
+        <th (click)="sort('prdCat')">
+        <i class="fa" [ngClass]="{'fa-sort': column != 'prdCat', 'fa-sort-asc': (column == 'prdCat' && isDesc), 'fa-sort-desc': (column == 'prdCat' && !isDesc) }" aria-hidden="true"></i>
+        Category</th>
+        
+        <th (click)="sort('prdSup')">
+        <i class="fa" [ngClass]="{'fa-sort': column != 'prdSup', 'fa-sort-asc': (column == 'prdSup' && isDesc), 'fa-sort-desc': (column == 'prdSup' && !isDesc) }" aria-hidden="true"></i>
+        Supplier</th>
       </tr>
 
-      <tr *ngFor="let product of productList | paginate: { itemsPerPage: 3, currentPage: p } | product: term">
+      <tr *ngFor="let product of productList | product: term | paginate: { itemsPerPage: 3, currentPage: p } | orderBy: order : expression : reverse : caseInsensitive">
         <td>{{product.prdName}}</td>
         <td>{{product.prdCat}}</td>
         <td>{{product.prdSup}}</td>

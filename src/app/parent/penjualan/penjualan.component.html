@@ -59,7 +59,7 @@
         <th>Product</th>
       </tr>
 
-      <tr *ngFor="let Penjualan of penjualanList | paginate: { itemsPerPage: 3, currentPage: p } | penjualan: term">
+      <tr *ngFor="let Penjualan of penjualanList | penjualan: term | paginate: { itemsPerPage: 3, currentPage: p }">
         <td>{{Penjualan.cstId}}</td>
         <td>{{Penjualan.cstName}}</td>
         <td>{{Penjualan.product}}</td>

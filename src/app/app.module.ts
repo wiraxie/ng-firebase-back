@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OrderModule } from 'ngx-order-pipe';
 
 //import ang. firebase module
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -33,6 +34,7 @@ import { CustomerPipe } from './parent/customer/customer.pipe';
 import { PenjualanPipe } from './parent/penjualan/penjualan.pipe';
 import { PembelianPipe } from './parent/pembelian/pembelian.pipe';
 
+import { PrdSortPipe } from './parent/product/prd-sort.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { PembelianPipe } from './parent/pembelian/pembelian.pipe';
     CustomerPipe,
     PenjualanPipe,
     PembelianPipe,
+    PrdSortPipe,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { PembelianPipe } from './parent/pembelian/pembelian.pipe';
     CustomFormsModule,
     NgxPaginationModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), //environtment. yg di environtment 
+    OrderModule,
   ],
   providers: [ ProductService, CustomerService, SupplierService, PenjualanService, PembelianService ],
   bootstrap: 
