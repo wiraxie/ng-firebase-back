@@ -15,13 +15,15 @@ import { BeliSortPipe } from './beli-sort.pipe';
 export class PembelianComponent implements OnInit {
   
     //class Pembelian
-    pembelianList: Pembelian[];
+    //pembelianList: Pembelian[];
+    pembelianList: Pembelian[] = [];
   
     //after import masukkan ke constructor
     constructor(private PembelianService: PembelianService) { }
   
-    p:number = 1;
-
+    p:number = 1; //utk page
+    isValid:boolean = true;
+  
     ngOnInit() 
     {
       //template
@@ -67,29 +69,26 @@ export class PembelianComponent implements OnInit {
       }
     }
   
-    onDelete(form: NgForm) 
-    {
-      //fungsi deletePembelian()
+   onDelete($beliKey: string) 
+   {
       if (confirm('Are you sure to delete this record ?') == true) {
-        this.PembelianService.deletePembelian(form.value.$beliKey);
-        this.resetForm(form);
+        this.PembelianService.deletePembelian($beliKey);
       }
-    }
+   }
   
-    onItemClick(Pembelian : Pembelian)
+    onItemClick(prd : Pembelian)
     {
-      this.PembelianService.selectedPembelian = Object.assign({}, Pembelian);
+      this.PembelianService.selectedPembelian = Object.assign({}, prd);
     }
-
-  //sorting//
-  isDesc: boolean = false;
-  column: string = "prdName";
-  records = this.PembelianService.pembelianList
-  direction: number;
-  sort(property){
-    this.isDesc = !this.isDesc; //change the direction    
-    this.column = property;
-    this.direction = this.isDesc ? 1 : -1;
-    };
-  }
   
+    //sorting//
+    isDesc: boolean = false;
+    column: string = "prdName";
+    records = this.PembelianService.pembelianList
+    direction: number;
+    sort(property){
+      this.isDesc = !this.isDesc; //change the direction    
+      this.column = property;
+      this.direction = this.isDesc ? 1 : -1;
+      };
+  };  
