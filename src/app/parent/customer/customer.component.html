@@ -73,7 +73,7 @@
             <td>{{Customer.cstName}}</td>
             <td>{{Customer.cstCompany}}</td>
             <td><button type="button" class="btn btn-warning" (click)="onItemClick(Customer)" data-toggle="modal" data-target="#myModal">Update</button></td>
-            <td><button type="button" class="btn btn-danger" *ngIf="CustomerService.selectedCustomer.$cstKey!=null" (click)="onDelete(customerForm)">Delete</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="onDelete(Customer.$cstKey)">Delete</button></td>
             <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(customerForm)">Delete</button></td> -->
           </tr> 
         </table> 

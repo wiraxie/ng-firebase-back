@@ -13,15 +13,17 @@ import { CstSortPipe } from './cst-sort.pipe';
   encapsulation: ViewEncapsulation.None
 })
 export class CustomerComponent implements OnInit {
-
+  
     //class Customer
-    customerList: Customer[];
+    //customerList: Customer[];
+    customerList: Customer[] = [];
   
     //after import masukkan ke constructor
     constructor(private CustomerService: CustomerService) { }
   
-    p:number = 1;
-
+    p:number = 1; //utk page
+    isValid:boolean = true;
+  
     ngOnInit() 
     {
       //template
@@ -63,35 +65,33 @@ export class CustomerComponent implements OnInit {
       this.CustomerService.selectedCustomer = {
         $cstKey: null,
         cstId: '',
-        cstName: '',
-        cstCompany:'',
+        cstName:'',
+        cstCompany:''
       }
     }
   
-    onDelete(form: NgForm) 
-    {
-      //fungsi deleteCustomer()
+   onDelete($cstKey: string) 
+   {
       if (confirm('Are you sure to delete this record ?') == true) {
-        this.CustomerService.deleteCustomer(form.value.$cstKey);
-        this.resetForm(form);
+        this.CustomerService.deleteCustomer($cstKey);
       }
-    }
+   }
   
-    onItemClick(cst : Customer)
+    onItemClick(prd : Customer)
     {
-      this.CustomerService.selectedCustomer = Object.assign({}, cst);
+      this.CustomerService.selectedCustomer = Object.assign({}, prd);
     }
-
-  //sorting//
-  isDesc: boolean = false;
-  column: string = "cstName";
-  records = this.CustomerService.customerList
-  direction: number;
-  sort(property){
-    this.isDesc = !this.isDesc; //change the direction    
-    this.column = property;
-    this.direction = this.isDesc ? 1 : -1;
-    };
   
-  }
+    //sorting//
+    isDesc: boolean = false;
+    column: string = "prdName";
+    records = this.CustomerService.customerList
+    direction: number;
+    sort(property){
+      this.isDesc = !this.isDesc; //change the direction    
+      this.column = property;
+      this.direction = this.isDesc ? 1 : -1;
+      };
+  };
+  
   

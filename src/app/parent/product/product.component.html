@@ -68,12 +68,12 @@
         Supplier</th>
       </tr>
 
-      <tr *ngFor="let product of productList | product: term | prdSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
-        <td>{{product.prdName}}</td>
-        <td>{{product.prdCat}}</td>
-        <td>{{product.prdSup}}</td>
-        <td><button type="button" class="btn btn-warning" (click)="onItemClick(product)" data-toggle="modal" data-target="#myModal">Update</button></td>
-        <td><button type="button" class="btn btn-danger" (click)="onDelete(product.$prdKey)">Delete</button></td>
+      <tr *ngFor="let Product of productList | product: term | prdSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
+        <td>{{Product.prdName}}</td>
+        <td>{{Product.prdCat}}</td>
+        <td>{{Product.prdSup}}</td>
+        <td><button type="button" class="btn btn-warning" (click)="onItemClick(Product)" data-toggle="modal" data-target="#myModal">Update</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="onDelete(Product.$prdKey)">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(productForm)">Delete</button></td> -->
       </tr>     
     </table>

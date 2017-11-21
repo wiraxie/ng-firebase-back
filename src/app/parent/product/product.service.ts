@@ -50,12 +50,12 @@ export class ProductService {
   }
  //end of update
 
-//template delete
-deleteProduct($prdKey : string)
-{
-  //this.productList.remove($prdKey);
-  this.productList.remove($prdKey);
-}
-//end of delete
+  //template delete
+  deleteProduct($prdKey : string)
+  {
+    //this.productList.remove($prdKey);
+    this.productList.remove($prdKey);
+  }
+  //end of delete
 
 }

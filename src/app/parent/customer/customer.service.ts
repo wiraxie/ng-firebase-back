@@ -31,9 +31,9 @@ export class CustomerService {
     {
       this.customerList.push(
       {
-        cstId : Customer.cstId,
-        cstName : Customer.cstName,
-        cstCompany : Customer.cstCompany,
+        cstId: Customer.cstId,
+        cstName: Customer.cstName,
+        cstCompany: Customer.cstCompany
       });
     }
     //setelah jadi panggil di onSubmit()
@@ -43,18 +43,20 @@ export class CustomerService {
     updateCustomer(cst : Customer)
     {
       this.customerList.update(cst.$cstKey,{
-        cstId : cst.cstId,
-        cstName : cst.cstName,
-        cstCompany : cst.cstCompany,
+        cstId: cst.cstId,
+        cstName: cst.cstName,
+        cstCompany: cst.cstCompany
       })
     }
    //end of update
   
-  //template delete
-  deleteCustomer(key : string)
-  {
-    this.customerList.remove(key);
-  }
-  //end of delete
+    //template delete
+    deleteCustomer($cstKey : string)
+    {
+      //this.customerList.remove($cstKey);
+      this.customerList.remove($cstKey);
+    }
+    //end of delete
   
   }
+  
