@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit {
   constructor(private ProductService: ProductService) { }
 
   p:number = 1; //utk page
-  order: string = 'prdName';
+  isValid:boolean = true;
 
   ngOnInit() 
   {
@@ -74,7 +74,6 @@ export class ProductComponent implements OnInit {
  {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.ProductService.deleteProduct($prdKey);
-      //this.resetForm(form);
     }
  }
 

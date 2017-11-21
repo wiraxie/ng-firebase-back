@@ -73,7 +73,7 @@
         <td>{{product.prdCat}}</td>
         <td>{{product.prdSup}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(product)" data-toggle="modal" data-target="#myModal">Update</button></td>
-        <td><button type="button" class="btn btn-danger" (click)="onDelete(ProductService.selectedProduct.$prdKey)">Delete</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="onDelete(product.$prdKey)">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(productForm)">Delete</button></td> -->
       </tr>     
     </table>

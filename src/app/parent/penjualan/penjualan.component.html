@@ -35,7 +35,7 @@
             
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button> 
-                <button type="button" class="btn btn-danger" *ngIf="PenjualanService.selectedPenjualan.$jualKey!=null" (click)="onDelete(penjualanForm)">Delete</button>
+                <!-- <button type="button" class="btn btn-danger" *ngIf="PenjualanService.selectedPenjualan.$jualKey!=null" (click)="onDelete(penjualanForm)">Delete</button> -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </form>
@@ -72,7 +72,7 @@
         <td>{{Penjualan.cstName}}</td>
         <td>{{Penjualan.product}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Penjualan)" data-toggle="modal" data-target="#myModal">Update</button></td>
-        <td><button type="button" class="btn btn-danger">Delete</button></td>
+        <td><button type="button" class="btn btn-danger" *ngIf="PenjualanService.selectedPenjualan.$jualKey!=null" (click)="onDelete(penjualanForm)">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(penjualanForm)">Delete</button></td> -->
       </tr> 
     </table> 

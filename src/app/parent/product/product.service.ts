@@ -51,9 +51,10 @@ export class ProductService {
  //end of update
 
 //template delete
-deleteProduct(key : string)
+deleteProduct($prdKey : string)
 {
-  this.productList.remove(key);
+  //this.productList.remove($prdKey);
+  this.productList.remove($prdKey);
 }
 //end of delete
 

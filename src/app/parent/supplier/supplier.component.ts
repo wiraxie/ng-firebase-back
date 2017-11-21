@@ -15,13 +15,15 @@ import { SupSortPipe } from './sup-sort.pipe';
 export class SupplierComponent implements OnInit {
   
     //class Supplier
-    supplierList: Supplier[];
+    //supplierList: Supplier[];
+    supplierList: Supplier[] = [];
   
     //after import masukkan ke constructor
     constructor(private SupplierService: SupplierService) { }
-
-    p:number = 1;
-
+  
+    p:number = 1; //utk page
+    isValid:boolean = true;
+  
     ngOnInit() 
     {
       //template
@@ -62,35 +64,33 @@ export class SupplierComponent implements OnInit {
         form.reset();
       this.SupplierService.selectedSupplier = {
         $supKey: null,
-        supName:'',
+        supName: '',
         supProduct:'',
-        supLocation:'',
+        supLocation:''
       }
     }
   
-    onDelete(form: NgForm) 
-    {
-      //fungsi deleteSupplier()
+   onDelete($supKey: string) 
+   {
       if (confirm('Are you sure to delete this record ?') == true) {
-        this.SupplierService.deleteSupplier(form.value.$supKey);
-        this.resetForm(form);
+        this.SupplierService.deleteSupplier($supKey);
       }
+   }
+  
+    onItemClick(prd : Supplier)
+    {
+      this.SupplierService.selectedSupplier = Object.assign({}, prd);
     }
   
-    onItemClick(sup : Supplier)
-    {
-      this.SupplierService.selectedSupplier = Object.assign({}, sup);
-    }
-
-    //sort
-    records = this.SupplierService.supplierList;
+    //sorting//
     isDesc: boolean = false;
-    column: string = 'supName';
+    column: string = "prdName";
+    records = this.SupplierService.supplierList
     direction: number;
     sort(property){
-        this.isDesc = !this.isDesc; //change the direction    
-        this.column = property;
-        this.direction = this.isDesc ? 1 : -1;
-    }
+      this.isDesc = !this.isDesc; //change the direction    
+      this.column = property;
+      this.direction = this.isDesc ? 1 : -1;
+      };
+  };
   
-  }

@@ -36,7 +36,7 @@
             
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button> 
-                <button type="button" class="btn btn-danger" *ngIf="SupplierService.selectedSupplier.$supKey!=null" (click)="onDelete(supplierForm)">Delete</button>
+                <!-- <button type="button" class="btn btn-danger" *ngIf="SupplierService.selectedSupplier.$supKey!=null" (click)="onDelete(supplierForm)">Delete</button> -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </form>
@@ -74,7 +74,7 @@
             <td>{{Supplier.supProduct}}</td>
             <td>{{Supplier.supLocation}}</td>
             <td><button type="button" class="btn btn-warning" (click)="onItemClick(Supplier)" data-toggle="modal" data-target="#myModal">Update</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="onDelete(Supplier.$supKey)">Delete</button></td>
             <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(supplierForm)">Delete</button></td> -->
           </tr> 
         </table> 
