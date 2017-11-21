@@ -1,6 +1,7 @@
-<h2 align="center">Pembelian:</h2>
+<h2 align="center">Pembelian</h2>
+
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">ADD</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" (click)="resetForm()">ADD</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -10,41 +11,37 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        
+
           <form #pembelianForm="ngForm" (ngSubmit)="onSubmit(pembelianForm)">
-              <input type="hidden" name="$beliKey" #$beliKey="ngModel" [(ngModel)]="PembelianService.selectedPembelian.$beliKey">
-              
-              <div class="form-group">
-                <label>Supplier Name</label>
-                <input class="form-control" name="supName" #supName="ngModel" [(ngModel)]="PembelianService.selectedPembelian.supName">
-              </div>
+            <input type="hidden" name="$beliKey" #$beliKey="ngModel" [(ngModel)]="PembelianService.selectedPembelian.$beliKey">
             
-              <div>
-              <label>Product</label>
-              <select class="form-control" #product="ngModel" name="product" [(ngModel)]="PembelianService.selectedPembelian.product">
-                <option value="H2O">H2O</option>
-                <option value="NaCl">NaCl</option>
-                <option value="NO2">NO2</option>  
-              </select>
+            <div class="form-group">
+              <label>Supplier Name</label>
+              <input class="form-control" name="supName" #supName="ngModel" [(ngModel)]="PembelianService.selectedPembelian.supName">
             </div>
-            
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button> 
-                <!-- <button type="button" class="btn btn-danger" *ngIf="PembelianService.selectedPembelian.$beliKey!=null" (click)="onDelete(pembelianForm)">Delete</button> -->
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </form>
+          
+            <div class="form-group">
+              <label>Product</label>
+                <input class="form-control" name="product" #product="ngModel" [(ngModel)]="PembelianService.selectedPembelian.product">
+            </div>
+          
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button> 
+              <!-- <button type="button" class="btn btn-danger" *ngIf="PembelianService.selectedPembelian.$beliKey!=null" (click)="onDelete(pembelianForm)">Delete</button> -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </form>
         </div>
-      </div>
     </div>
   </div>
+</div>
 
-<div class="container" id="beliContainer">
+<div class="container" id="prdContainer">
   <ul class="list-group hover">
     <li class="list-group-item">
 
-    <form id="filter">
-      <input type="text" name="term" [(ngModel)]="term" placeholder="filter by name"/> 
+    <form id="Filter">
+      <input type="text" class="form-control" name="term" [(ngModel)]="term" placeholder="filter by name" />
     </form>
 
     <table class="table table-striped table-responsive">
@@ -52,10 +49,11 @@
         <th (click)="sort('supName')">
         <i class="fa" [ngClass]="{'fa-sort': column != 'supName', 'fa-sort-asc': (column == 'supName' && isDesc), 'fa-sort-desc': (column == 'supName' && !isDesc) }" aria-hidden="true"></i> 
         Supplier Name</th>
-
+         
         <th (click)="sort('product')">
-        <i class="fa" [ngClass]="{'fa-sort': column != 'product', 'fa-sort-asc': (column == 'product' && isDesc), 'fa-sort-desc': (column == 'product' && !isDesc) }" aria-hidden="true"></i> 
+        <i class="fa" [ngClass]="{'fa-sort': column != 'product', 'fa-sort-asc': (column == 'product' && isDesc), 'fa-sort-desc': (column == 'product' && !isDesc) }" aria-hidden="true"></i>
         Product</th>
+
       </tr>
 
       <tr *ngFor="let Pembelian of pembelianList | pembelian: term | beliSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
@@ -64,9 +62,9 @@
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Pembelian)" data-toggle="modal" data-target="#myModal">Update</button></td>
         <td><button type="button" class="btn btn-danger" (click)="onDelete(Pembelian.$beliKey)">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(pembelianForm)">Delete</button></td> -->
-      </tr> 
-    </table> 
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </tr>     
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>   
   </li>
 </ul>
 </div>
