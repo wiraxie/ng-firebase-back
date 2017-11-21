@@ -22,7 +22,7 @@
           
             <div>
             <label>Product Category:</label>
-            <select #category="ngModel" name="prdCategory" [(ngModel)]="ProductService.selectedProduct.prdCat" class="form-control">
+            <select #category="ngModel" name="prdCategotyegory" [(ngModel)]="ProductService.selectedProduct.prdCategoty" class="form-control">
               <option value="Liquid">Liquid</option>
               <option value="Solid">Solid</option>
               <option value="Gas">Gas</option>  
@@ -59,8 +59,8 @@
         <i class="fa" [ngClass]="{'fa-sort': column != 'prdName', 'fa-sort-asc': (column == 'prdName' && isDesc), 'fa-sort-desc': (column == 'prdName' && !isDesc) }" aria-hidden="true"></i> 
         Name</th>
          
-        <th (click)="sort('prdCat')">
-        <i class="fa" [ngClass]="{'fa-sort': column != 'prdCat', 'fa-sort-asc': (column == 'prdCat' && isDesc), 'fa-sort-desc': (column == 'prdCat' && !isDesc) }" aria-hidden="true"></i>
+        <th (click)="sort('prdCategoty')">
+        <i class="fa" [ngClass]="{'fa-sort': column != 'prdCategoty', 'fa-sort-asc': (column == 'prdCategoty' && isDesc), 'fa-sort-desc': (column == 'prdCategoty' && !isDesc) }" aria-hidden="true"></i>
         Category</th>
         
         <th (click)="sort('prdSup')">
@@ -70,7 +70,7 @@
 
       <tr *ngFor="let Product of productList | product: term | prdSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
         <td>{{Product.prdName}}</td>
-        <td>{{Product.prdCat}}</td>
+        <td>{{Product.prdCategoty}}</td>
         <td>{{Product.prdSup}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Product)" data-toggle="modal" data-target="#myModal">Update</button></td>
         <td><button type="button" class="btn btn-danger" (click)="onDelete(Product.$prdKey)">Delete</button></td>

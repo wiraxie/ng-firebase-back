@@ -65,7 +65,7 @@ export class ProductComponent implements OnInit {
     this.ProductService.selectedProduct = {
       $prdKey: null,
       prdName: '',
-      prdCat:'',
+      prdCategotyegotyegoty:'',
       prdSup:''
     }
   }

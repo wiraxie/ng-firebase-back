@@ -15,13 +15,15 @@ import { JualSortPipe } from './jual-sort.pipe';
 export class PenjualanComponent implements OnInit {
   
     //class Penjualan
-    penjualanList: Penjualan[];
+    //penjualanList: Penjualan[];
+    penjualanList: Penjualan[] = [];
   
     //after import masukkan ke constructor
     constructor(private PenjualanService: PenjualanService) { }
   
-    p:number = 1;
-
+    p:number = 1; //utk page
+    isValid:boolean = true;
+  
     ngOnInit() 
     {
       //template
@@ -62,36 +64,33 @@ export class PenjualanComponent implements OnInit {
         form.reset();
       this.PenjualanService.selectedPenjualan = {
         $jualKey: null,
-        cstId:'',
+        cstId: '',
         cstName:'',
         product:''
       }
     }
   
-    onDelete(form: NgForm) 
-    {
-      //fungsi deletePenjualan()
+   onDelete($jualKey: string) 
+   {
       if (confirm('Are you sure to delete this record ?') == true) {
-        this.PenjualanService.deletePenjualan(form.value.$jualKey);
-        this.resetForm(form);
+        this.PenjualanService.deletePenjualan($jualKey);
       }
-    }
+   }
   
-    onItemClick(Penjualan : Penjualan)
+    onItemClick(prd : Penjualan)
     {
-      this.PenjualanService.selectedPenjualan = Object.assign({}, Penjualan);
+      this.PenjualanService.selectedPenjualan = Object.assign({}, prd);
     }
-
-  //sorting//
-  isDesc: boolean = false;
-  column: string = "cstName";
-  records = this.PenjualanService.penjualanList
-  direction: number;
-  sort(property){
-    this.isDesc = !this.isDesc; //change the direction    
-    this.column = property;
-    this.direction = this.isDesc ? 1 : -1;
-    };
   
-  }
+    //sorting//
+    isDesc: boolean = false;
+    column: string = "prdName";
+    records = this.PenjualanService.penjualanList
+    direction: number;
+    sort(property){
+      this.isDesc = !this.isDesc; //change the direction    
+      this.column = property;
+      this.direction = this.isDesc ? 1 : -1;
+      };
+  };
   

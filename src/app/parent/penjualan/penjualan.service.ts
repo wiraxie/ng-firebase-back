@@ -33,28 +33,29 @@ export class PenjualanService {
       {
         cstId: Penjualan.cstId,
         cstName: Penjualan.cstName,
-        product: Penjualan.product,
+        product: Penjualan.product
       });
     }
     //setelah jadi panggil di onSubmit()
     //end of add
   
     //template update
-    updatePenjualan(Penjualan : Penjualan)
+    updatePenjualan(jual : Penjualan)
     {
-      this.penjualanList.update(Penjualan.$jualKey,{
-        cstId: Penjualan.cstId,
-        cstName: Penjualan.cstName,
-        product: Penjualan.product,
+      this.penjualanList.update(jual.$jualKey,{
+        cstId: jual.cstId,
+        cstName: jual.cstName,
+        product: jual.product,
       })
     }
    //end of update
   
-  //template delete
-  deletePenjualan(key : string)
-  {
-    this.penjualanList.remove(key);
-  }
-  //end of delete
+    //template delete
+    deletePenjualan($jualKey : string)
+    {
+      //this.penjualanList.remove($jualKey);
+      this.penjualanList.remove($jualKey);
+    }
+    //end of delete
   
   }
