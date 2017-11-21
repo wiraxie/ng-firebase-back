@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { OrderModule } from 'ngx-order-pipe';
 
 //import ang. firebase module
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -70,7 +69,6 @@ import { BeliSortPipe } from './parent/pembelian/beli-sort.pipe';
     CustomFormsModule,
     NgxPaginationModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), //environtment. yg di environtment 
-    OrderModule,
   ],
   providers: [ ProductService, CustomerService, SupplierService, PenjualanService, PembelianService ],
   bootstrap: 

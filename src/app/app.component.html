@@ -26,20 +26,20 @@
               <ul class="sidebar-menu" data-widget="tree">
                 <li class="header"><b>MAIN NAVIGATION </b></li>
                 
-                <li (click)="showProduct=!showProduct; showCustomer=false; showSupplier=false; showJual=false; showBeli=false">
+                <li (click)="showProduct=!showProduct; showProduct=false; showCustomer=false; showSupplier=false; showJual=false; showBeli=false">
                   <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Product</span>
                   </a>
                 </li>
 
-                <li (click)="showSupplier=!showSupplier; showProduct=true; showCustomer=false; showJual=false; showBeli=false">
+                <li (click)="showSupplier=!showSupplier; showSupplier=true; showProduct=true; showCustomer=false; showJual=false; showBeli=false">
                   <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>Supplier</span>
                   </a>
                 </li>
 
-                <li (click)="showCustomer=!showCustomer; showProduct=true; showSupplier=false; showJual=false; showBeli=false">
+                <li (click)="showCustomer=!showCustomer; showCustomer=true; showProduct=true; showSupplier=false; showJual=false; showBeli=false">
                   <a href="#">
                     <i class="fa fa-th"></i> <span>Customer</span>
                     <span class="pull-right-container">
@@ -47,14 +47,14 @@
                   </a>
                 </li>
 
-                <li (click)="showJual=!showJual; showProduct=true; showSupplier=false; showCustomer=false; showBeli=false">
+                <li (click)="showJual=!showJual; showJual=true; showProduct=true; showSupplier=false; showCustomer=false; showBeli=false">
                   <a href="#">
                     <i class="fa fa-pie-chart"></i>
                     <span >Penjualan</span>
                   </a>
                 </li>
 
-                <li (click)="showBeli=!showBeli; showProduct=true; showSupplier=false; showCustomer=false; showJual=false">
+                <li (click)="showBeli=!showBeli; showBeli=true; showProduct=true; showSupplier=false; showCustomer=false; showJual=false">
                   <a href="#">
                     <i class="fa fa-laptop"></i>
                     <span >Pembelian</span>
