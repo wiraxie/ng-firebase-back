@@ -18,11 +18,6 @@ import { Penjualan } from './parent/penjualan/penjualan';
 
 //import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
-import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap'
 
 @Component({
   selector: 'app-root',
@@ -31,7 +26,10 @@ import 'rxjs/add/operator/switchMap'
 })
 export class AppComponent implements OnInit {
   
-  ngOnInit() {}
+  ngOnInit() 
+  {
+    
+  }
   pushMenu:boolean= false;
   constructor(private testing: AuthService) {}
 

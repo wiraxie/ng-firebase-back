@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormlyModule, FormlyBootstrapModule } from 'ng-formly';
 
 //import ang. firebase module
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -78,6 +79,8 @@ import { BeliSortPipe } from './parent/pembelian/beli-sort.pipe';
     FormsModule,
     CustomFormsModule,
     NgxPaginationModule,
+    FormlyModule,
+    FormlyBootstrapModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     RouterModule.forRoot(ROUTES),

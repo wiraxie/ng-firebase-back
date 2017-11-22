@@ -12,7 +12,7 @@ export class AuthService
   user: Observable<firebase.User>;
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) 
   {
-      this.user = this.afAuth.authState
+    this.user = this.afAuth.authState
   }
   
   login() 
@@ -22,6 +22,7 @@ export class AuthService
     
   logOut() 
   {
+    //this.user = null;
     this.afAuth.auth.signOut();
   }
 }
