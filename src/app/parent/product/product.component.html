@@ -1,5 +1,4 @@
 <h2 align="center">Product</h2>
-
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" (click)="resetForm()">ADD</button>
 
@@ -74,7 +73,7 @@
         <td>{{Product.prdSup}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Product)" data-toggle="modal" data-target="#myModal">Update</button></td>
         <td><button type="button" class="btn btn-danger" (click)="onDelete(Product.$prdKey)">Delete</button></td>
-        <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(productForm)">Delete</button></td> -->
+        <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(ProductService.selectedProduct.$prdKey)">Delete</button></td> -->
       </tr>     
     </table>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>   

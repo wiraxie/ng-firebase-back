@@ -16,6 +16,8 @@ import { Pembelian } from './pembelian/pembelian';
 import { PenjualanService } from './penjualan/penjualan.service';
 import { Penjualan } from './penjualan/penjualan';
 
+import { ParentService } from './parent.service';
+
 declare var jquery:any;
 declare var $ :any;
 
@@ -27,7 +29,7 @@ declare var $ :any;
 })
 export class ParentComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   showProduct:boolean = true;
   showCustomer:boolean = false;
@@ -39,10 +41,4 @@ export class ParentComponent implements OnInit {
   {
   
   }
-
-  // SideBar()
-  // {
-  //   $("#wrapper").toggleClass("menuDisplayed");
-  // }
-  
 }

@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 
 //import untuk firebase
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+//import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { Product } from './product'; //import class product
 
@@ -15,6 +19,10 @@ export class ProductService {
 
   //dependency injection here
   constructor(private firebase: AngularFireDatabase) { }
+
+  // login() {
+  //   this.firebase.auth.signInWithPopup(this.firebase.auth.GoogleAuthProvider());
+  // }
 
   //template view
   getData() 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { ProductService } from './parent/product/product.service';
 import { Product } from './parent/product/product';
@@ -15,6 +16,14 @@ import { Pembelian } from './parent/pembelian/pembelian';
 import { PenjualanService } from './parent/penjualan/penjualan.service';
 import { Penjualan } from './parent/penjualan/penjualan';
 
+//import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/switchMap'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,10 +31,26 @@ import { Penjualan } from './parent/penjualan/penjualan';
 })
 export class AppComponent implements OnInit {
   
-    //contructor after provide import service
-    constructor(private ProductService : ProductService) { }
-  
-    pushMenu:boolean= false;
-
-    ngOnInit() {}
+  ngOnInit() 
+  {
+    
   }
+  pushMenu:boolean= false;
+  //user: Observable<firebase.User>;
+  constructor(private testing: AuthService) 
+  {
+      //this.user = this.afAuth.authState
+  }
+
+  login(){this.testing.login();}
+  
+  // login() 
+  // {
+  //   this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  // }
+    
+  // logOut() 
+  // {
+  //   this.afAuth.auth.signOut();
+  // }
+}

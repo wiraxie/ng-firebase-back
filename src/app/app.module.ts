@@ -5,8 +5,11 @@ import { CustomFormsModule } from 'ng2-validation';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 //import ang. firebase module
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
+import * as firebase from 'firebase/app';
 
 import { AppComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';
@@ -15,6 +18,10 @@ import { CustomerComponent } from './parent/customer/customer.component';
 import { SupplierComponent } from './parent/supplier/supplier.component';
 import { PenjualanComponent } from './parent/penjualan/penjualan.component';
 import { PembelianComponent } from './parent/pembelian/pembelian.component';
+
+//router
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
 
 //import dari invirontment
 import { environment } from '../environments/environment'
@@ -25,6 +32,9 @@ import { CustomerService }  from './parent/customer/customer.service';
 import { SupplierService } from './parent/supplier/supplier.service';
 import { PenjualanService } from './parent/penjualan/penjualan.service';
 import { PembelianService } from './parent/pembelian/pembelian.service';
+import { ParentService } from './parent/parent.service';
+import { AuthService } from './auth.service';
+
 
 //dari pipe baru
 import { ProductPipe } from './parent/product/product.pipe';
@@ -68,9 +78,12 @@ import { BeliSortPipe } from './parent/pembelian/beli-sort.pipe';
     FormsModule,
     CustomFormsModule,
     NgxPaginationModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), //environtment. yg di environtment 
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    RouterModule.forRoot(ROUTES),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'app-component'), //environtment. yg di environtment 
   ],
-  providers: [ ProductService, CustomerService, SupplierService, PenjualanService, PembelianService ],
+  providers: [ AuthService, ParentService, ProductService, CustomerService, SupplierService, PenjualanService, PembelianService],
   bootstrap: 
   [
     AppComponent,
