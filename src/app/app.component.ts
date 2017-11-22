@@ -31,26 +31,17 @@ import 'rxjs/add/operator/switchMap'
 })
 export class AppComponent implements OnInit {
   
-  ngOnInit() 
-  {
-    
-  }
+  ngOnInit() {}
   pushMenu:boolean= false;
-  //user: Observable<firebase.User>;
-  constructor(private testing: AuthService) 
+  constructor(private testing: AuthService) {}
+
+  CallLogin()
   {
-      //this.user = this.afAuth.authState
+    this.testing.login();
   }
 
-  login(){this.testing.login();}
-  
-  // login() 
-  // {
-  //   this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  // }
-    
-  // logOut() 
-  // {
-  //   this.afAuth.auth.signOut();
-  // }
+  CallLogOut()
+  {
+    this.testing.logOut();
+  }
 }
