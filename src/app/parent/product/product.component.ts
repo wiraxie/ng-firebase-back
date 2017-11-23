@@ -43,7 +43,7 @@ export class ProductComponent implements OnInit {
 
   onSubmit(form: NgForm) 
   {
-    //fungsi insertEmployee dan update
+    //fungsi insertProduct dan update
     if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
       //this.ProductService.insertProduct(form.value);

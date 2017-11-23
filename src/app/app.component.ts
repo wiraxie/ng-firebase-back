@@ -25,21 +25,25 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.css', ]
 })
 export class AppComponent implements OnInit {
-  
-  ngOnInit() 
-  {
-    
-  }
+ 
+  ngOnInit() {}
   pushMenu:boolean= false;
-  constructor(private testing: AuthService) {}
+  constructor(private AuthService: AuthService) {}
+
+  isBtn:boolean = true;
 
   CallLogin()
   {
-    this.testing.login();
+    this.AuthService.login();
+  }
+
+  isLoggedIn() 
+  {
+    return this.AuthService.isLogin();
   }
 
   CallLogOut()
   {
-    this.testing.logOut();
+    this.AuthService.logOut();
   }
 }

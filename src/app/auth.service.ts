@@ -13,13 +13,28 @@ export class AuthService
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) 
   {
     this.user = this.afAuth.authState
+    console.log('ini' ,this.user);
   }
   
   login() 
   {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    //this.afAuth.auth.subscribe(auth => console.log(auth));
   }
     
+  public currentUser: firebase.User = null;
+  isLogin()
+  {
+    if(this.currentUser == null)
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+
   logOut() 
   {
     //this.user = null;

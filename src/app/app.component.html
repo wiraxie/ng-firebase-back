@@ -14,15 +14,19 @@
                     <span class="sr-only">Toggle navigation</span>
                 </a>
 
-                <!-- Menu Items -->
-                <div>
+                <!-- nav items -->
+                <div *ngIf="isBtn; else content2">
                   <ul class="nav navbar-nav">
-                      <li><a href="#" (click)="CallLogin()">LOGIN</a></li> <!--*ngIf login="true"-->
-                      <li><a href="#" (click)="CallLogOut()">LOG OUT</a></li>
-                      <!-- <li><a href="#">REG</a></li> -->
+                    <li><a href="#" (click)="CallLogin(); isBtn=!isBtn">LOGIN</a></li>
                   </ul>
                 </div>
 
+                <ng-template #content2>
+                  <ul class="nav navbar-nav">
+                    <li><a href="#" (click)="CallLogOut()">LOG OUT</a></li>
+                  </ul>
+                </ng-template>
+         
               </div>
             </nav>
           </header>
