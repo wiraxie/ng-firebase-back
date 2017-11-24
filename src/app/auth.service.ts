@@ -64,7 +64,7 @@ export class AuthService
     return (this.authState !== null) ? this.authState : null;
   }
  
-  get isUserEmailLoggedIn(): boolean 
+  get isUserEmailLoggedIn(): boolean //true atau false
   {
     if ((this.authState !== null) && (!this.isUserAnonymousLoggedIn)) 
     {
@@ -107,7 +107,7 @@ export class AuthService
   signOut(): void 
   {
     this.afAuth.auth.signOut();
-    //isUserEmailLoggedInthis.router.navigate(['/'])
+    //this.authState.isUserEmailLoggedInthis.router.navigate(['/'])
   }
   //test by email
 

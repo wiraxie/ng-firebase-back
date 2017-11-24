@@ -60,12 +60,9 @@ export class ParentComponent implements OnInit {
  
     if (this.validateForm(this.email, this.password)) {
       this.AuthService.signUpWithEmail(this.email, this.password)
-        .then(() => {
-          this.router.navigate(['/'])
-        }).catch(_error => {
+        .catch(_error => {
           this.error = _error
-          this.router.navigate(['/'])
-        })
+         })
     }
   }
  
@@ -107,6 +104,7 @@ export class ParentComponent implements OnInit {
  
     return true
   }
+
   //test by email
 
   showProduct:boolean = true;
