@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { AppComponent } from '../app.component';
-import { Router } from '@angular/router';
 
 import { ProductService } from './product/product.service';
 import { Product } from './product/product';
@@ -34,7 +33,7 @@ export class ParentComponent implements OnInit {
 
   ngOnInit() {}
 
-  constructor(private AuthService: AuthService, private router : Router) {}
+  constructor(private AuthService: AuthService) {}
 
   //test by email
   isNewUser = true;
