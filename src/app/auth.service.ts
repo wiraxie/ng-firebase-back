@@ -66,9 +66,12 @@ export class AuthService
  
   get isUserEmailLoggedIn(): boolean 
   {
-    if ((this.authState !== null) && (!this.isUserAnonymousLoggedIn)) {
+    if ((this.authState !== null) && (!this.isUserAnonymousLoggedIn)) 
+    {
       return true
-    } else {
+    } 
+    else 
+    {
       return false
     }
   }
@@ -76,10 +79,12 @@ export class AuthService
   signUpWithEmail(email: string, password: string) 
   {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then((user) => 
+      {
         this.authState = user
       })
-      .catch(error => {
+      .catch(error => 
+      {
         console.log(error)
         throw error
       });
@@ -88,10 +93,12 @@ export class AuthService
   loginWithEmail(email: string, password: string)
   {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then((user) => 
+      {
         this.authState = user
       })
-      .catch(error => {
+      .catch(error => 
+      {
         console.log(error)
         throw error
       });
@@ -100,7 +107,7 @@ export class AuthService
   signOut(): void 
   {
     this.afAuth.auth.signOut();
-    //this.router.navigate(['/'])
+    //isUserEmailLoggedInthis.router.navigate(['/'])
   }
   //test by email
 

@@ -109,7 +109,6 @@ export class ParentComponent implements OnInit {
   }
   //test by email
 
-
   showProduct:boolean = true;
   showCustomer:boolean = false;
   showSupplier:boolean = false;
