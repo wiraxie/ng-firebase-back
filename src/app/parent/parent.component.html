@@ -46,7 +46,7 @@
 			<button type="submit" class="btn btn-success">Register</button>
 		</form>
  
-        <h4 href="#" class="text-primary">Already have an Account?<button type="submit" class="btn btn-primary" (click)="changeForm()">Log In</button></h4>
+        <h4 class="text-primary">Already have an Account?<button type="submit" href="#" class="btn btn-primary" (click)="changeForm()">Log In</button></h4>
 	</div>
  
 	<div style="width: 350px;" *ngIf="!isNewUser">
@@ -70,7 +70,7 @@
 			<button type="submit" class="btn btn-primary">Log In</button>
 		</form>
  
-		<h4 href="#" class="text-primary">Not have any Account yet?<button type="submit" class="btn btn-success" (click)="changeForm()">Register</button></h4>
+		<h4 class="text-primary">Not have any Account yet?<button type="submit" href="#" class="btn btn-success" (click)="changeForm()">Register</button></h4>
     </div>
     
     <div *ngIf="AuthService.currentUser && AuthService.isUserEmailLoggedIn" align="center">
@@ -82,6 +82,5 @@
         </h4>
         <button class="button" (click)="logout()">Logout</button>
     </div>
-
 <!-- </div> -->
 </div>
