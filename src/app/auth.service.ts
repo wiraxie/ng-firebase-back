@@ -12,7 +12,7 @@ export class AuthService implements OnInit
 {
   ngOnInit(){}
 
-  authState: any = null;
+  private authState: any = null;
   user: Observable<firebase.User>;
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) 
   {
@@ -45,25 +45,27 @@ export class AuthService implements OnInit
     this.afAuth.auth.signOut();
   }
 
-  //test by email
+  //.................................test by email.......................................//
+  //get cyrrentUserId()
   get currentUserId(): string 
   {
     return (this.authState !== null) ? this.authState.uid : ''
   }
  
+  //get currentUserName()
   get currentUserName(): string
   {
     return this.authState['email']
   }
  
-  get currentUser(): any
-  //get currentUser(): 
+  //get currentUser():
+  get currentUser(): any 
   {
     return (this.authState !== null) ? this.authState : null;
   }
- 
-  get isUserEmailLoggedIn(): boolean //true atau false
+
   //get isUserEmailLoggedIn()
+  get isUserEmailLoggedIn(): boolean //true atau false
   {
     if ((this.authState !== null)) 
     {
@@ -107,6 +109,6 @@ export class AuthService implements OnInit
   {
     this.afAuth.auth.signOut();
   }
-  //test by email
+  //.................................test by email.......................................//
 
 }

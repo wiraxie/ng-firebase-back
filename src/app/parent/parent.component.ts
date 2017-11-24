@@ -41,7 +41,7 @@ export class ParentComponent implements OnInit {
   password = '';
   errorMessage = '';
   error: {name: string, message: string} = {name: '', message: ''};
-  
+
   clearErrorMessage() 
   {
     this.errorMessage = '';
@@ -101,6 +101,11 @@ export class ParentComponent implements OnInit {
     this.errorMessage = ''
  
     return true
+  }
+
+  logout() 
+  {
+    this.AuthService.signOut();
   }
 
   //test by email
