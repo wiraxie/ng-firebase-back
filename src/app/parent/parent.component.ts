@@ -72,10 +72,8 @@ export class ParentComponent implements OnInit {
  
     if (this.validateForm(this.email, this.password)) {
       this.AuthService.loginWithEmail(this.email, this.password)
-        .then(() => this.router.navigate(['/']))
         .catch(_error => {
           this.error = _error
-          this.router.navigate(['/'])
         })
     }
   }
