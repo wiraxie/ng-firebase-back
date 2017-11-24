@@ -35,7 +35,7 @@ export class ParentComponent implements OnInit {
 
   constructor(private AuthService: AuthService) {}
 
-  //test by email
+  //.................................test by email.......................................//
   isNewUser = true;
   email = '';
   password = '';
@@ -108,7 +108,7 @@ export class ParentComponent implements OnInit {
     this.AuthService.signOut();
   }
 
-  //test by email
+  //.................................test by email.......................................//
 
   showProduct:boolean = true;
   showCustomer:boolean = false;

@@ -67,6 +67,7 @@ export class AuthService implements OnInit
   //get isUserEmailLoggedIn()
   get isUserEmailLoggedIn(): boolean //true atau false
   {
+    //return this.authState !== null;
     if ((this.authState !== null)) 
     {
       return true;
@@ -110,5 +111,4 @@ export class AuthService implements OnInit
     this.afAuth.auth.signOut();
   }
   //.................................test by email.......................................//
-
 }
