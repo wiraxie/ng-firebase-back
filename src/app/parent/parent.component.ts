@@ -71,7 +71,8 @@ export class ParentComponent implements OnInit {
  
     if (this.validateForm(this.email, this.password)) {
       this.AuthService.loginWithEmail(this.email, this.password)
-        .catch(_error => {
+        .catch(_error => 
+        {
           this.error = _error
         })
     }

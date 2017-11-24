@@ -37,7 +37,6 @@ import { PembelianService } from './parent/pembelian/pembelian.service';
 import { ParentService } from './parent/parent.service';
 import { AuthService } from './auth.service';
 
-
 //dari pipe baru
 import { ProductPipe } from './parent/product/product.pipe';
 import { SupplierPipe } from './parent/supplier/supplier.pipe';
@@ -86,7 +85,7 @@ import { BeliSortPipe } from './parent/pembelian/beli-sort.pipe';
     AngularFireAuthModule,
     AngularFirestoreModule,
     RouterModule.forRoot(ROUTES),
-    AngularFireModule.initializeApp(environment.firebaseConfig, 'app-component'), //environtment. yg di environtment 
+    AngularFireModule.initializeApp(environment.firebaseConfiguration, 'app-root'), //environtment. yg di environtment 
   ],
   providers: [ AuthService, ParentService, ProductService, CustomerService, SupplierService, PenjualanService, PembelianService],
   bootstrap: 

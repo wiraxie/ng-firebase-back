@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   
   //dari website firebase
-  firebaseConfig : 
+  firebaseConfiguration : 
   {
     apiKey: "AIzaSyBgRNSve-U4Q9XTodQgLfIsyfNZABi9xxM",
     authDomain: "ng-product.firebaseapp.com",

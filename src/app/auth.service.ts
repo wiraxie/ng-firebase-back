@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 import * as firebase from 'firebase/app';
@@ -8,8 +8,10 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap'
 
 @Injectable()
-export class AuthService 
+export class AuthService implements OnInit
 {
+  ngOnInit(){}
+
   authState: any = null;
   user: Observable<firebase.User>;
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) 
@@ -44,11 +46,6 @@ export class AuthService
   }
 
   //test by email
-  get isUserAnonymousLoggedIn(): boolean 
-  {
-    return (this.authState !== null) ? this.authState.isAnonymous : false
-  }
- 
   get currentUserId(): string 
   {
     return (this.authState !== null) ? this.authState.uid : ''
@@ -59,20 +56,22 @@ export class AuthService
     return this.authState['email']
   }
  
-  get currentUser(): any 
+  get currentUser(): any
+  //get currentUser(): 
   {
     return (this.authState !== null) ? this.authState : null;
   }
  
   get isUserEmailLoggedIn(): boolean //true atau false
+  //get isUserEmailLoggedIn()
   {
-    if ((this.authState !== null) && (!this.isUserAnonymousLoggedIn)) 
+    if ((this.authState !== null)) 
     {
-      return true
+      return true;
     } 
     else 
     {
-      return false
+      return false;
     }
   }
  
@@ -107,7 +106,6 @@ export class AuthService
   signOut(): void 
   {
     this.afAuth.auth.signOut();
-    //this.authState.isUserEmailLoggedInthis.router.navigate(['/'])
   }
   //test by email
 
