@@ -10,7 +10,7 @@ import 'rxjs/add/operator/switchMap'
 @Injectable()
 export class AuthService implements OnInit
 {
-  ngOnInit(){}
+  ngOnInit() {}
 
   private authState: any = null;
   user: Observable<firebase.User>;

@@ -12,49 +12,59 @@ input, select
     max-width: 42%;
 }
 
-.sidebar1 {
+.sidebar1 
+{
     background: rgb(0, 0, 0);
     height: 100%;
     max-height: 100%;
 }
 
-.container-fluid{
+.container-fluid
+{
     height: 100%;
     max-height: 100%;
 }
 
-.logo {
+.logo 
+{
     max-height: 130px;
 }
-.logo>img {
+.logo>img 
+{
     margin-top: 30px;
     padding: 3px;
     border: 3px solid white;
     border-radius: 100%;
 }
-.list {
+.list 
+{
     color: #fff;
     list-style: none;
     padding-left: 0px;
 }
-.list::first-line {
+.list::first-line 
+{
     color: rgba(255, 255, 255, 0.5);
 }
-.list> li, h5 {
+.list> li, h5 
+{
     padding: 5px 0px 5px 40px;
 }
-.list>li:hover {
+.list>li:hover 
+{
     background-color: rgba(255, 255, 255, 0.2);
     border-left: 5px solid white;
     color: white;
     font-weight: bolder;
     padding-left: 35px;
 }
-.main-content{
+.main-content
+{
 text-align:center;
 }
 
-.dropdown-menu {
+.dropdown-menu 
+{
     width: 350px !important;
 }
 
