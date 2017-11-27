@@ -36,7 +36,7 @@ export class ParentComponent implements OnInit {
   constructor(private AuthService: AuthService) {}
 
   //.................................test by email.......................................//
-  isNewUser = true;
+  isNewUser:boolean = true;
   email = '';
   password = '';
   errorMessage = '';
@@ -51,7 +51,8 @@ export class ParentComponent implements OnInit {
   changeForm() 
   {
     this.isNewUser = !this.isNewUser;
-    event.stopPropagation(); ​
+    $('.dropdown-menu') 
+      event.stopPropagation(); ​
   }
  
   onSignUp(): void 
@@ -60,8 +61,8 @@ export class ParentComponent implements OnInit {
  
     if (this.validateForm(this.email, this.password)) {
       this.AuthService.signUpWithEmail(this.email, this.password)
-        .catch(_error => {
-          this.error = _error
+        .catch(error => {
+          this.error = error
          })
     }
   }
@@ -72,9 +73,9 @@ export class ParentComponent implements OnInit {
  
     if (this.validateForm(this.email, this.password)) {
       this.AuthService.loginWithEmail(this.email, this.password)
-        .catch(_error => 
+        .catch(error => 
         {
-          this.error = _error
+          this.error = error
         })
     }
   }
