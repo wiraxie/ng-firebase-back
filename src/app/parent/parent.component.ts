@@ -50,8 +50,9 @@ export class ParentComponent implements OnInit {
  
   changeForm() 
   {
-    this.isNewUser = !this.isNewUser;
-    event.stopPropagation(); ​
+    this.isNewUser = !this.isNewUser; ​
+    //event.stopImmediatePropagation();
+    event.stopPropagation();
   }
  
   onSignUp(): void 
