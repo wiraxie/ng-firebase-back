@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { SupplierService } from './supplier.service';
-import { Supplier } from './supplier';
+import { SupplierService } from './supplier.service'; //service
+import { AuthService } from '../../auth.service';
+
+import { Supplier } from './supplier'; //class
 import { SupplierPipe } from './supplier.pipe';
 import { SupSortPipe } from './sup-sort.pipe';
 
@@ -19,7 +21,7 @@ export class SupplierComponent implements OnInit {
     supplierList: Supplier[] = [];
   
     //after import masukkan ke constructor
-    constructor(private SupplierService: SupplierService) { }
+    constructor(private SupplierService: SupplierService, private AuthService: AuthService) { }
   
     p:number = 1; //utk page
     isValid:boolean = true;

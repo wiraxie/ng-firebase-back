@@ -19,6 +19,9 @@ import { Penjualan } from './parent/penjualan/penjualan';
 //import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
+declare var jquery:any;
+declare var $ :any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

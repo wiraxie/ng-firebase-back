@@ -24,51 +24,51 @@
 
 <div align="center">
     <div *ngIf="!AuthService.currentUser">
-	<div style="width: 350px;" *ngIf="isNewUser">
- 
-		<p *ngIf="errorMessage.length > 0" class="text-danger">
-			{{errorMessage}}</p>
- 
-		<p *ngIf="error.message.length > 0" class="text-danger">
-			{{error.message}}</p>
- 
-		<form (ngSubmit)="onSignUp()">
-			<div class="form-group">
-                <label for="email">Email</label> 
-                <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
-			</div>
- 
-			<div class="form-group">
-                <label for="password">Password</label> 
-                <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
-			</div>
- 
-			<button type="submit" class="btn btn-success">Register</button>
-		</form>
- 
-        <h4 class="text-primary">Already have an Account? <button type="submit" href="#" class="btn btn-primary btn-xs" (click)="changeForm()">Log In</button></h4>
-	</div>
- 
-	<div style="width: 350px;" *ngIf="!isNewUser">
- 
-		<p *ngIf="errorMessage.length > 0" class="text-danger">{{errorMessage}}</p>
-			
-		<p *ngIf="error.message.length > 0" class="text-danger">{{error.message}}</p>
- 
-		<form (ngSubmit)="onLoginEmail()">
-			<div class="form-group">
-				<label for="email">Email</label> <input type="text" class="form-control" id="email" name="email" required [(ngModel)]="email">
-			</div>
- 
-			<div class="form-group">
-                <label for="password">Password</label> 
-                <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
-			</div>
- 
-			<button type="submit" class="btn btn-primary">Log In</button>
-		</form>
- 
-		<h4 class="text-primary">Not have any Account yet? <button type="submit" href="#" class="btn btn-success btn-xs" (click)="changeForm()">Register</button></h4>
+        <div style="width: 350px;" *ngIf="isNewUser">
+     
+            <p *ngIf="errorMessage.length > 0" class="text-danger">
+                {{errorMessage}}</p>
+     
+            <p *ngIf="error.message.length > 0" class="text-danger">
+                {{error.message}}</p>
+     
+            <form (ngSubmit)="onSignUp()">
+                <div class="form-group">
+                    <label for="email">Email</label> 
+                    <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
+                </div>
+     
+                <div class="form-group">
+                    <label for="password">Password</label> 
+                    <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
+                </div>
+     
+                <button type="submit" class="btn btn-success">Register</button>
+            </form>
+
+            <h4 class="text-primary">Already have an Account? <button type="submit" href="#" class="btn btn-primary btn-xs" (click)="changeForm()">Log In</button></h4>
+        </div>
+     
+        <div style="width: 350px;" *ngIf="!isNewUser">
+     
+            <p *ngIf="errorMessage.length > 0" class="text-danger">{{errorMessage}}</p>
+                
+            <p *ngIf="error.message.length > 0" class="text-danger">{{error.message}}</p>
+     
+            <form (ngSubmit)="onLoginEmail()">
+                <div class="form-group">
+                    <label for="email">Email</label> <input type="text" class="form-control" id="email" name="email" required [(ngModel)]="email">
+                </div>
+     
+                <div class="form-group">
+                    <label for="password">Password</label> 
+                    <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
+                </div>
+     
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+     
+            <h4 class="text-primary">Not have any Account yet? <button type="submit" href="#" class="btn btn-success btn-xs" (click)="changeForm()">Register</button></h4>
+        </div>
     </div>
-</div>
 </div>

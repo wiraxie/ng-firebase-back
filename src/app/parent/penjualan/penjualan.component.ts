@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { PenjualanService } from './penjualan.service'; //service
+import { AuthService } from '../../auth.service';
+
 import { Penjualan } from './penjualan'; //class
 import { PenjualanPipe } from  './penjualan.pipe';
 import { JualSortPipe } from './jual-sort.pipe';
@@ -19,7 +21,7 @@ export class PenjualanComponent implements OnInit {
     penjualanList: Penjualan[] = [];
   
     //after import masukkan ke constructor
-    constructor(private PenjualanService: PenjualanService) { }
+    constructor(private PenjualanService: PenjualanService, private AuthService: AuthService) { }
   
     p:number = 1; //utk page
     isValid:boolean = true;

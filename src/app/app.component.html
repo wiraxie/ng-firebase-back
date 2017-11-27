@@ -24,7 +24,7 @@
               <div>
                 <ul class="nav navbar-nav">
                   <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">LOGIN/REGISTER <span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" auto-close="disabled">REGISTER/LOGIN <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                           <app-parent></app-parent>
                       </ul>
@@ -34,7 +34,7 @@
 
                <div *ngIf="AuthService.currentUser && AuthService.isUserEmailLoggedIn" align="center">
                 <ul class="nav navbar-nav">
-                  <li><a href="#">Welcome <u>{{ AuthService.currentUserName }}</u></a></li>
+                  <li><a href="#">Welcome <u>({{ AuthService.currentUserName }})</u></a></li>
                   <li><a href="#" (click)="logout()">Logout</a></li>
                 </ul>
               </div>

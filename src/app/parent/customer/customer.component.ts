@@ -2,9 +2,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { CustomerService } from './customer.service'; //service
+import { AuthService } from '../../auth.service';
+
 import { Customer } from './customer'; //class
 import { CustomerPipe } from './customer.pipe';
 import { CstSortPipe } from './cst-sort.pipe';
+import { AuthGuard } from '../../auth.guard';
 
 @Component({
   selector: 'app-customer',
@@ -19,7 +22,7 @@ export class CustomerComponent implements OnInit {
     customerList: Customer[] = [];
   
     //after import masukkan ke constructor
-    constructor(private CustomerService: CustomerService) { }
+    constructor(private CustomerService: CustomerService, private AuthService: AuthService) { }
   
     p:number = 1; //utk page
     isValid:boolean = true;

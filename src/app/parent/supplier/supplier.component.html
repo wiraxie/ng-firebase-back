@@ -21,8 +21,8 @@
               </div>
         
               <div>
-                <label>Supplier Product</label>
-                <select #supProduct="ngModel" name="supProduct" [(ngModel)]="SupplierService.selectedSupplier.supProduct" class="form-control">
+                <label>Supplier Supplier</label>
+                <select #supSupplier="ngModel" name="supSupplier" [(ngModel)]="SupplierService.selectedSupplier.supSupplier" class="form-control">
                   <option value="H2O">H2O</option>
                   <option value="NaCl">NaCl</option>
                   <option value="NO2">NO2</option>  
@@ -34,11 +34,18 @@
                   <input class="form-control" name="supLocation" #supLocation="ngModel" [(ngModel)]="SupplierService.selectedSupplier.supLocation">
               </div>
             
-              <div class="form-group">
+              <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">
+                  <p>PLEASE LOGIN TO SUBMIT</p>
+                  <button type="submit" class="btn btn-primary" disabled>Submit</button>
+                  <!-- <button type="button" class="btn btn-danger" *ngIf="SupplierService.selectedSupplier.$supKey!=null" (click)="onDelete(supplierForm)">Delete</button> -->
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+  
+              <ng-template #authenticated><div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button> 
                 <!-- <button type="button" class="btn btn-danger" *ngIf="SupplierService.selectedSupplier.$supKey!=null" (click)="onDelete(supplierForm)">Delete</button> -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
+              </div></ng-template>
             </form>
 
       </div>
@@ -60,9 +67,9 @@
             <i class="fa" [ngClass]="{'fa-sort': column != 'supName', 'fa-sort-asc': (column == 'supName' && isDesc), 'fa-sort-desc': (column == 'supName' && !isDesc) }" aria-hidden="true"></i> 
             Name</th>
 
-            <th (click)="sort('supProduct')">
-            <i class="fa" [ngClass]="{'fa-sort': column != 'supProduct', 'fa-sort-asc': (column == 'supProduct' && isDesc), 'fa-sort-desc': (column == 'supProduct' && !isDesc) }" aria-hidden="true"></i>
-            Product</th>
+            <th (click)="sort('supSupplier')">
+            <i class="fa" [ngClass]="{'fa-sort': column != 'supSupplier', 'fa-sort-asc': (column == 'supSupplier' && isDesc), 'fa-sort-desc': (column == 'supSupplier' && !isDesc) }" aria-hidden="true"></i>
+            Supplier</th>
 
             <th (click)="sort('supLocation')">
             <i class="fa" [ngClass]="{'fa-sort': column != 'supLocation', 'fa-sort-asc': (column == 'supLocation' && isDesc), 'fa-sort-desc': (column == 'supLocation' && !isDesc) }" aria-hidden="true"></i>
@@ -71,7 +78,7 @@
     
           <tr *ngFor="let Supplier of supplierList | supplier: term | supSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
             <td>{{Supplier.supName}}</td>
-            <td>{{Supplier.supProduct}}</td>
+            <td>{{Supplier.supSupplier}}</td>
             <td>{{Supplier.supLocation}}</td>
             <td><button type="button" class="btn btn-warning" (click)="onItemClick(Supplier)" data-toggle="modal" data-target="#myModal">Update</button></td>
             <td><button type="button" class="btn btn-danger" (click)="onDelete(Supplier.$supKey)">Delete</button></td>

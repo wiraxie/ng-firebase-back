@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { PembelianService } from './pembelian.service'; //service
+import { AuthService } from '../../auth.service'; 
+
 import { Pembelian } from './pembelian'; //class
 import { PembelianPipe } from './pembelian.pipe';
 import { BeliSortPipe } from './beli-sort.pipe';
@@ -19,7 +21,7 @@ export class PembelianComponent implements OnInit {
     pembelianList: Pembelian[] = [];
   
     //after import masukkan ke constructor
-    constructor(private PembelianService: PembelianService) { }
+    constructor(private PembelianService: PembelianService, private AuthService: AuthService) { }
   
     p:number = 1; //utk page
     isValid:boolean = true;

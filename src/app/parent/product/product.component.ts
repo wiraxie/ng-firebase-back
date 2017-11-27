@@ -2,6 +2,8 @@ import { Component, OnInit, Input, EventEmitter, OnDestroy, HostListener, ViewEn
 import { NgForm } from '@angular/forms';
 
 import { ProductService } from './product.service'; //service
+import { AuthService } from '../../auth.service';
+
 import { Product } from './product'; //class
 import { ProductPipe } from './product.pipe';
 import { PrdSortPipe } from './prd-sort.pipe';
@@ -19,7 +21,7 @@ export class ProductComponent implements OnInit {
   productList: Product[] = [];
 
   //after import masukkan ke constructor
-  constructor(private ProductService: ProductService) { }
+  constructor(private ProductService: ProductService, private AuthService: AuthService) { }
 
   p:number = 1; //utk page
   isValid:boolean = true;
@@ -39,6 +41,8 @@ export class ProductComponent implements OnInit {
         this.productList.push(y as Product);
       });
     });
+
+    AuthService;
   }
 
   onSubmit(form: NgForm) 
