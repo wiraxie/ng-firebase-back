@@ -94,9 +94,9 @@ export class ParentComponent implements OnInit {
       return false
     }
  
-    if (password.length < 6) 
+    if (password.length < 8) 
     {
-      this.errorMessage = 'Password should be at least 6 characters!'
+      this.errorMessage = 'Password should be at least 8 characters!'
       return false
     }
  
@@ -116,4 +116,9 @@ export class ParentComponent implements OnInit {
   showSupplier:boolean = false;
   showJual:boolean = false;
   showBeli:boolean = false;
+
+  CallLogin()
+  {
+    this.AuthService.login();
+  }
 }

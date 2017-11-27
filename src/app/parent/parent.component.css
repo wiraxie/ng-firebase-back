@@ -61,3 +61,8 @@ text-align:center;
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.btn-google
+{
+    background-color: #d62d20;
+}
