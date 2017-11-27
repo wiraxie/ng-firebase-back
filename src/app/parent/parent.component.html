@@ -26,11 +26,9 @@
     <div *ngIf="!AuthService.currentUser">
         <div style="width: 350px;" *ngIf="isNewUser">
      
-            <p *ngIf="errorMessage.length > 0" class="text-danger">
-                {{errorMessage}}</p>
+            <p *ngIf="errorMessage.length > 0" class="text-danger">{{errorMessage}}</p>
      
-            <p *ngIf="error.message.length > 0" class="text-danger">
-                {{error.message}}</p>
+            <p *ngIf="error.message.length > 0" class="text-danger">{{error.message}}</p>
      
             <form (ngSubmit)="onSignUp()">
                 <div class="form-group">

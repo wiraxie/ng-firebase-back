@@ -14,17 +14,17 @@
                     <span class="sr-only">Toggle navigation</span>
                 </a>
 
-                <!-- nav items -->
-                <!-- <div *ngIf="isBtn">
-                  <ul class="nav navbar-nav">
-                    <li><a href="#" (click)="CallLogin(); isBtn=!isBtn">LOGIN w/ Google</a></li>
-                  </ul>
-                </div> -->
+              <!-- nav items -->
+              <!-- <div *ngIf="isBtn">
+                <ul class="nav navbar-nav">
+                  <li><a href="#" (click)="CallLogin(); isBtn=!isBtn">LOGIN w/ Google</a></li>
+                </ul>
+              </div> -->
 
               <div>
                 <ul class="nav navbar-nav">
                   <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" auto-close="disabled">REGISTER/LOGIN <span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">REGISTER/LOGIN <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                           <app-parent></app-parent>
                       </ul>
@@ -32,10 +32,11 @@
                 </ul>
               </div>
 
-               <div *ngIf="AuthService.currentUser && AuthService.isUserEmailLoggedIn" align="center">
+              <!--tampilkan setelah login/register-->
+              <div *ngIf="AuthService.currentUser && AuthService.isUserEmailLoggedIn" align="center">
                 <ul class="nav navbar-nav">
-                  <li><a href="#">Welcome <u>({{ AuthService.currentUserName }})</u></a></li>
-                  <li><a href="#" (click)="logout()">Logout</a></li>
+                  <li><a href="#">Welcome <u>({{AuthService.currentUserName}})</u></a></li>
+                  <li><a href="#" (click)="logout()">LOGOUT</a></li>
                 </ul>
               </div>
          
@@ -97,33 +98,33 @@
           <!-- Content Wrapper. Contains page content -->
             <section class="col-lg-5 connectedSortable">
               <div class="container">
-                        <!--Product-->
-                        <div *ngIf="!showProduct" align="center">
-                            <app-product></app-product>    
-                        </div>
+                <!--Product-->
+                <div *ngIf="!showProduct" align="center">
+                    <app-product></app-product>    
+                </div>
                     
-                        <!--Customer-->
-                        <div *ngIf="showCustomer" align="center">
-                            <app-customer></app-customer>
-                        </div>
+                <!--Customer-->
+                <div *ngIf="showCustomer" align="center">
+                    <app-customer></app-customer>
+                </div>
                                 
-                        <!--Supplier-->
-                        <div *ngIf="showSupplier" align="center">
-                            <app-supplier></app-supplier>
-                        </div>
+                <!--Supplier-->
+                <div *ngIf="showSupplier" align="center">
+                  <app-supplier></app-supplier>
+                </div>
                     
-                        <!--Penjualan-->
-                        <div *ngIf="showJual" align="center">
-                            <app-penjualan></app-penjualan>
-                        </div>
+                <!--Penjualan-->
+                <div *ngIf="showJual" align="center">
+                  <app-penjualan></app-penjualan>
+                </div>
                     
-                        <!--Pembelian-->
-                        <div *ngIf="showBeli" align="center">
-                            <app-pembelian></app-pembelian>
-                        </div>
+                <!--Pembelian-->
+                <div *ngIf="showBeli" align="center">
+                  <app-pembelian></app-pembelian>
+                </div>
 
-                    </div>
-                </section>
+              </div>
+            </section>
                 <!-- right col -->
               </div>
               <!-- /.row (main row) -->

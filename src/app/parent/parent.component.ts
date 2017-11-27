@@ -50,7 +50,8 @@ export class ParentComponent implements OnInit {
  
   changeForm() 
   {
-    this.isNewUser = !this.isNewUser
+    this.isNewUser = !this.isNewUser;
+    $('.dropdown-menu').event.stopPropagation(); ​
   }
  
   onSignUp(): void 

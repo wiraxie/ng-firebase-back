@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { ParentComponent } from './parent/parent.component';
 
 import { ProductService } from './parent/product/product.service';
 import { Product } from './parent/product/product';
