@@ -35,7 +35,7 @@
           
             <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">
                 <p>PLEASE LOGIN TO SUBMIT</p>
-                <button type="submit" class="btn btn-primary" disabled>Submit</button>
+                <button type="submit" class="btn btn-primary" disabled title="PLEASE LOGIN TO SUBMIT">Submit</button>
                 <!-- <button type="button" class="btn btn-danger" *ngIf="ProductService.selectedProduct.$prdKey!=null" (click)="onDelete(productForm)">Delete</button> -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
