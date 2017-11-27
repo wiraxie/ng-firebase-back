@@ -1,4 +1,10 @@
-th { cursor: pointer; }
+th 
+{ cursor: pointer; }
+
+p
+{
+    color: red;
+}
 
 input, select
 {

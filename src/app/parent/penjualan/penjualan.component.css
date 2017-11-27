@@ -1,6 +1,11 @@
 li 
 { cursor: pointer; }
 
+p
+{
+    color: red;
+}
+
 input, select
 {
     max-width: 42%;
