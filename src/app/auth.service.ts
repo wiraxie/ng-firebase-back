@@ -58,7 +58,7 @@ export class AuthService implements OnInit
     return this.authState['email']
   }
  
-  //get currentUser():
+  //get currentUser()
   get currentUser(): any 
   {
     return (this.authState !== null) ? this.authState : null;

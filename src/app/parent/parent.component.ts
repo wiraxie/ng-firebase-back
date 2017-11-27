@@ -107,7 +107,6 @@ export class ParentComponent implements OnInit {
   {
     this.AuthService.signOut();
   }
-
   //.................................test by email.......................................//
 
   showProduct:boolean = true;
