@@ -53,5 +53,4 @@ export class ParentService {
     this.afAuth.auth.signOut().then(() => {
         this.router.navigate(['/']);
     });
-  }
-}
+  }}
