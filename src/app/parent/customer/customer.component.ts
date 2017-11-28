@@ -69,7 +69,9 @@ export class CustomerComponent implements OnInit {
         $cstKey: null,
         cstId: '',
         cstName:'',
-        cstCompany:''
+        cstCompany:'',
+        cstEmail: '',
+        cstPhone:''
       }
     }
   

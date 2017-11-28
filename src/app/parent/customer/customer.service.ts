@@ -33,7 +33,9 @@ export class CustomerService {
       {
         cstId: Customer.cstId,
         cstName: Customer.cstName,
-        cstCompany: Customer.cstCompany
+        cstCompany: Customer.cstCompany,
+        cstEmail: Customer.cstEmail,
+        cstPhone: Customer.cstPhone
       });
     }
     //setelah jadi panggil di onSubmit()
@@ -45,7 +47,9 @@ export class CustomerService {
       this.customerList.update(cst.$cstKey,{
         cstId: cst.cstId,
         cstName: cst.cstName,
-        cstCompany: cst.cstCompany
+        cstCompany: cst.cstCompany,
+        cstEmail: cst.cstEmail,
+        cstPhone: cst.cstPhone
       })
     }
    //end of update

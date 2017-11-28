@@ -3,4 +3,6 @@ export class Customer {
     cstId: string;
     cstName: string;
     cstCompany: string;
+    cstEmail: string;
+    cstPhone: string;
 }

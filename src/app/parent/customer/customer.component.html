@@ -32,6 +32,16 @@
                   <option value="Nitrogen Dioxide">Nitrogen Dioxide</option>  
                 </select>
               </div>
+
+              <div>
+                <label>Customer Email</label>
+                <input class="form-control" name="cstEmail" #cstEmail="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstEmail">
+              </div>
+
+              <div>
+                <label>Customer Phone</label>
+                <input class="form-control" name="cstPhone" #cstPhone="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstPhone">
+              </div>
         
               <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">
                   <p>PLEASE LOGIN TO SUBMIT</p>
@@ -79,6 +89,8 @@
             <td>{{Customer.cstId}}</td>
             <td>{{Customer.cstName}}</td>
             <td>{{Customer.cstCompany}}</td>
+            <!-- <td>{{Customer.cstEmail}}</td>
+            <td>{{Customer.cstPhone}}</td> -->
             <td><button type="button" class="btn btn-warning" (click)="onItemClick(Customer)" data-toggle="modal" data-target="#myModal">Update</button></td>
             <td><button type="button" class="btn btn-danger" (click)="onDelete(Customer.$cstKey)">Delete</button></td>
             <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(customerForm)">Delete</button></td> -->
