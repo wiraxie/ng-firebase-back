@@ -17,7 +17,7 @@ export class AuthService implements OnInit
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) 
   {
     this.afAuth.authState.subscribe((auth) => {this.authState = auth});
-    console.log('ini' ,this.user);
+    //console.log('ini' ,this.authState);
   }
   
   login() 
@@ -83,7 +83,7 @@ export class AuthService implements OnInit
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => 
       {
-        this.authState = user
+        this.authState = new user
       })
       .catch(error => 
       {
@@ -98,6 +98,7 @@ export class AuthService implements OnInit
       .then((user) => 
       {
         this.authState = user
+        console.log('ini' ,this.authState);
       })
       .catch(error => 
       {

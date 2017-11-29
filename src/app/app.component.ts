@@ -30,7 +30,10 @@ declare var $ :any;
 })
 export class AppComponent implements OnInit {
  
-  ngOnInit() {}
+  ngOnInit() 
+  {
+    //logout();
+  }
   pushMenu:boolean= false;
   constructor(private AuthService: AuthService) {}
 

@@ -16,12 +16,12 @@
             
             <div class="form-group">
               <label>Product Name</label>
-              <input class="form-control" name="prdName" #prdName="ngModel" [(ngModel)]="ProductService.selectedProduct.prdName">
+              <input class="form-control" name="prdName" #prdName="ngModel" [(ngModel)]="ProductService.selectedProduct.prdName" required/>
             </div>
           
             <div>
             <label>Product Category:</label>
-            <select #category="ngModel" name="prdCategotyegory" [(ngModel)]="ProductService.selectedProduct.prdCategoty" class="form-control">
+            <select #category="ngModel" name="prdCategoryegory" [(ngModel)]="ProductService.selectedProduct.prdCategory" class="form-control">
               <option value="Liquid">Liquid</option>
               <option value="Solid">Solid</option>
               <option value="Gas">Gas</option>  
@@ -66,8 +66,8 @@
         <i class="fa" [ngClass]="{'fa-sort': column != 'prdName', 'fa-sort-asc': (column == 'prdName' && isDesc), 'fa-sort-desc': (column == 'prdName' && !isDesc) }" aria-hidden="true"></i> 
         Name</th>
          
-        <th (click)="sort('prdCategoty')">
-        <i class="fa" [ngClass]="{'fa-sort': column != 'prdCategoty', 'fa-sort-asc': (column == 'prdCategoty' && isDesc), 'fa-sort-desc': (column == 'prdCategoty' && !isDesc) }" aria-hidden="true"></i>
+        <th (click)="sort('prdCategory')">
+        <i class="fa" [ngClass]="{'fa-sort': column != 'prdCategory', 'fa-sort-asc': (column == 'prdCategory' && isDesc), 'fa-sort-desc': (column == 'prdCategory' && !isDesc) }" aria-hidden="true"></i>
         Category</th>
         
         <th (click)="sort('prdSup')">
@@ -77,7 +77,7 @@
 
       <tr *ngFor="let Product of productList | product: term | prdSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
         <td>{{Product.prdName}}</td>
-        <td>{{Product.prdCategoty}}</td>
+        <td>{{Product.prdCategory}}</td>
         <td>{{Product.prdSup}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Product)" data-toggle="modal" data-target="#myModal">Update</button></td>
         <td><button type="button" class="btn btn-danger" (click)="onDelete(Product.$prdKey)">Delete</button></td>

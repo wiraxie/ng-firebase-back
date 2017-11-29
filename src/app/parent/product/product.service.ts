@@ -36,7 +36,7 @@ export class ProductService {
     this.productList.push(
     {
       prdName: Product.prdName,
-      prdCategoty: Product.prdCategoty,
+      prdCategory: Product.prdCategory,
       prdSup: Product.prdSup,
     });
   }
@@ -48,7 +48,7 @@ export class ProductService {
   {
     this.productList.update(prd.$prdKey,{
       prdName: prd.prdName,
-      prdCategoty: prd.prdCategoty,
+      prdCategory: prd.prdCategory,
       prdSup: prd.prdSup,
     })
   }
