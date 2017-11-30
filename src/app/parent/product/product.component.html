@@ -11,26 +11,29 @@
       </div>
       <div class="modal-body">
 
-          <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+          <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)" ngNativeValidate>
             <input type="hidden" name="$prdKey" #$prdKey="ngModel" [(ngModel)]="ProductService.selectedProduct.$prdKey">
             
             <div class="form-group">
               <label>Product Name</label>
-              <input class="form-control" name="prdName" #prdName="ngModel" [(ngModel)]="ProductService.selectedProduct.prdName" required/>
+              <input class="form-control" name="prdName" #prdName="ngModel" [(ngModel)]="ProductService.selectedProduct.prdName" oninvalid="this.setCustomValidity('please fill this field')" oninput="setCustomValidity('')" required/>
+              <p *ngIf="prdName.invalid && prdName.touched">Product Name Required!</p>
             </div>
           
             <div>
-            <label>Product Category:</label>
-            <select #category="ngModel" name="prdCategoryegory" [(ngModel)]="ProductService.selectedProduct.prdCategory" class="form-control">
+            <label>Product Category</label>
+            <select #prdCategory="ngModel" name="prdCategory" [(ngModel)]="ProductService.selectedProduct.prdCategory" class="form-control" required>
               <option value="Liquid">Liquid</option>
               <option value="Solid">Solid</option>
               <option value="Gas">Gas</option>  
             </select>
+              <p *ngIf="prdCategory.invalid && prdName.touched">Product Category Required</p>
             </div>
           
             <div class="form-group">
               <label>Supplier</label>
-                <input class="form-control" name="prdSup" #supplier="ngModel" [(ngModel)]="ProductService.selectedProduct.prdSup" placeholder="supplier">
+                <input class="form-control" name="prdSup" #prdSup="ngModel" [(ngModel)]="ProductService.selectedProduct.prdSup" placeholder="supplier" required/>
+                <p *ngIf="prdSup.invalid && prdSup.touched">Product Supplier Required!</p>
             </div>
           
             <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">

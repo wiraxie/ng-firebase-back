@@ -16,31 +16,36 @@
               
               <div class="form-group">
                 <label>Customer ID</label>
-                <input class="form-control" name="cstId" #cstId="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstId">
+                <input class="form-control" name="cstId" #cstId="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstId" required/>
+                <p *ngIf="cstId.invalid && cstId.touched">Customer ID Required!</p>
               </div>
         
               <div class="form-group">
                 <label>Customer Name</label>
-                <input class="form-control" name="cstName" #cstName="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstName">
+                <input class="form-control" name="cstName" #cstName="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstName" required/>
+                <p *ngIf="cstName.invalid && cstName.touched">Customer Name Required!</p>
               </div>
            
               <div>
                 <label>Customer Company</label>
-                <select #cstCompany="ngModel" name="cstCompany" [(ngModel)]="CustomerService.selectedCustomer.cstCompany" class="form-control">
+                <select #cstCompany="ngModel" name="cstCompany" [(ngModel)]="CustomerService.selectedCustomer.cstCompany" class="form-control" required>
                   <option value="Hydrogen Dioxide">Hydrogen Dioxide</option>
                   <option value="Natrium Chloride">Natrium Chloride</option>
                   <option value="Nitrogen Dioxide">Nitrogen Dioxide</option>  
                 </select>
+                <p *ngIf="cstCompany.invalid && cstCompany.touched">Customer Company Required!</p>
               </div>
 
               <div>
                 <label>Customer Email</label>
-                <input class="form-control" name="cstEmail" #cstEmail="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstEmail">
+                <input class="form-control" name="cstEmail" #cstEmail="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstEmail" required/>
+                <p *ngIf="cstEmail.invalid && cstEmail.touched">Customer Email Required!</p>
               </div>
 
               <div>
                 <label>Customer Phone</label>
-                <input class="form-control" name="cstPhone" #cstPhone="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstPhone">
+                <input class="form-control" name="cstPhone" #cstPhone="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstPhone" required/>
+                <p *ngIf="cstPhone.invalid && cstPhone.touched">Customer Phone Required</p>
               </div>
         
               <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">

@@ -16,21 +16,24 @@
               
               <div class="form-group">
                 <label>Customer ID</label>
-                <input class="form-control" name="cstId" #cstId="ngModel" [(ngModel)]="PenjualanService.selectedPenjualan.cstId">
+                <input class="form-control" name="cstId" #cstId="ngModel" [(ngModel)]="PenjualanService.selectedPenjualan.cstId" required/>
+                <p *ngIf="cstId.invalid && cstId.touched">Customer ID Required!</p>
               </div>
             
               <div class="form-group">
                 <label>Customer Name</label>
-                  <input class="form-control" name="cstName" #cstName="ngModel" [(ngModel)]="PenjualanService.selectedPenjualan.cstName">
+                  <input class="form-control" name="cstName" #cstName="ngModel" [(ngModel)]="PenjualanService.selectedPenjualan.cstName" required/>
+                  <p *ngIf="cstName.invalid && cstName.touched">Customer Name Required!</p>
               </div>
             
               <div>
               <label>Product</label>
-              <select #product="ngModel" name="product" [(ngModel)]="PenjualanService.selectedPenjualan.product" class="form-control">
+              <select #product="ngModel" name="product" [(ngModel)]="PenjualanService.selectedPenjualan.product" class="form-control" required>
                 <option value="H2O">H2O</option>
                 <option value="NaCl">NaCl</option>
                 <option value="NO2">NO2</option>  
               </select>
+              <p *ngIf="product.invalid && product.touched">Product Name Required!</p>
               </div>
             
               <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">

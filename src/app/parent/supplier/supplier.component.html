@@ -12,26 +12,29 @@
       </div>
       <div class="modal-body">
         
-          <form #supplierForm="ngForm" (ngSubmit)="onSubmit(supplierForm)">
+          <form #supplierForm="ngForm" (ngSubmit)="onSubmit(supplierForm)" ngNativeValidate>
               <input type="hidden" name="$supKey" #$supKey="ngModel" [(ngModel)]="SupplierService.selectedSupplier.$supKey">
               
               <div class="form-group">
                 <label>Supplier Name</label>
-                <input class="form-control" name="supName" #supName="ngModel" [(ngModel)]="SupplierService.selectedSupplier.supName">
+                <input class="form-control" name="supName" #supName="ngModel" [(ngModel)]="SupplierService.selectedSupplier.supName" required/>
+                <p *ngIf="supName.invalid && supName.touched">Supplier Name Required!</p>
               </div>
         
               <div>
-                <label>Supplier Supplier</label>
-                <select #supSupplier="ngModel" name="supSupplier" [(ngModel)]="SupplierService.selectedSupplier.supSupplier" class="form-control">
+                <label>Supplier Product</label>
+                <select #supProduct="ngModel" name="supProduct" [(ngModel)]="SupplierService.selectedSupplier.supProduct" class="form-control" required>
                   <option value="H2O">H2O</option>
                   <option value="NaCl">NaCl</option>
                   <option value="NO2">NO2</option>  
                 </select>
+                <p *ngIf="supProduct.invalid && supProduct.touched">Supplier Product Required!</p>
               </div>
             
               <div class="form-group">
                 <label>Supplier Location</label>
-                  <input class="form-control" name="supLocation" #supLocation="ngModel" [(ngModel)]="SupplierService.selectedSupplier.supLocation">
+                <input class="form-control" name="supLocation" #supLocation="ngModel" [(ngModel)]="SupplierService.selectedSupplier.supLocation" required/>
+                <p *ngIf="supLocation.invalid && supLocation.touched">Supplier Location Required!</p>
               </div>
             
               <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">
@@ -67,8 +70,8 @@
             <i class="fa" [ngClass]="{'fa-sort': column != 'supName', 'fa-sort-asc': (column == 'supName' && isDesc), 'fa-sort-desc': (column == 'supName' && !isDesc) }" aria-hidden="true"></i> 
             Name</th>
 
-            <th (click)="sort('supSupplier')">
-            <i class="fa" [ngClass]="{'fa-sort': column != 'supSupplier', 'fa-sort-asc': (column == 'supSupplier' && isDesc), 'fa-sort-desc': (column == 'supSupplier' && !isDesc) }" aria-hidden="true"></i>
+            <th (click)="sort('supProduct')">
+            <i class="fa" [ngClass]="{'fa-sort': column != 'supProduct', 'fa-sort-asc': (column == 'supProduct' && isDesc), 'fa-sort-desc': (column == 'supProduct' && !isDesc) }" aria-hidden="true"></i>
             Supplier</th>
 
             <th (click)="sort('supLocation')">
@@ -78,7 +81,7 @@
     
           <tr *ngFor="let Supplier of supplierList | supplier: term | supSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
             <td>{{Supplier.supName}}</td>
-            <td>{{Supplier.supSupplier}}</td>
+            <td>{{Supplier.supProduct}}</td>
             <td>{{Supplier.supLocation}}</td>
             <td><button type="button" class="btn btn-warning" (click)="onItemClick(Supplier)" data-toggle="modal" data-target="#myModal">Update</button></td>
             <td><button type="button" class="btn btn-danger" (click)="onDelete(Supplier.$supKey)">Delete</button></td>

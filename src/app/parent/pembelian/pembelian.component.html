@@ -17,12 +17,14 @@
             
             <div class="form-group">
               <label>Supplier Name</label>
-              <input class="form-control" name="supName" #supName="ngModel" [(ngModel)]="PembelianService.selectedPembelian.supName">
+              <input class="form-control" name="supName" #supName="ngModel" [(ngModel)]="PembelianService.selectedPembelian.supName" required/>
+              <p *ngIf="supName.invalid && supName.touched">Supplier Name Required</p>
             </div>
           
             <div class="form-group">
               <label>Product</label>
-                <input class="form-control" name="product" #product="ngModel" [(ngModel)]="PembelianService.selectedPembelian.product">
+                <input class="form-control" name="product" #product="ngModel" [(ngModel)]="PembelianService.selectedPembelian.product" required/>
+                <p *ngIf="product.invalid && product.touched">Product Name Required!</p>
             </div>
           
             <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">
