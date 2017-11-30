@@ -83,7 +83,7 @@ export class AuthService implements OnInit
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => 
       {
-        this.authState = new user //user baru
+        this.authState
       })
       .catch(error => 
       {
