@@ -11,7 +11,6 @@ export class PrdSortPipe implements PipeTransform {
       records = records || [];
       return records.sort(function(a, b)
       {
-
           if(a[term.property] < b[term.property])
           {
             return -1 * term.direction;
@@ -24,7 +23,6 @@ export class PrdSortPipe implements PipeTransform {
           {
             return 0;
           }
-       
       });
     }
 } 

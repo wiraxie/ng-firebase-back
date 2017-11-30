@@ -55,7 +55,7 @@ export class AuthService implements OnInit
   //get currentUserName()
   get currentUserName(): string
   {
-    return this.authState['email']
+    return this.authState['email'];
   }
  
   //get currentUser()
@@ -83,7 +83,7 @@ export class AuthService implements OnInit
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => 
       {
-        this.authState
+        this.authState = new user //user baru
       })
       .catch(error => 
       {

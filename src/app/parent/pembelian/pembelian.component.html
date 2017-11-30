@@ -18,7 +18,7 @@
             <div class="form-group">
               <label>Supplier Name</label>
               <input class="form-control" name="supName" #supName="ngModel" [(ngModel)]="PembelianService.selectedPembelian.supName" required/>
-              <p *ngIf="supName.invalid && supName.touched">Supplier Name Required</p>
+              <p *ngIf="supName.invalid && supName.touched">Supplier Name Required!</p>
             </div>
           
             <div class="form-group">
