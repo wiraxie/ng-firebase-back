@@ -12,6 +12,7 @@ import { PrdSortPipe } from './prd-sort.pipe';
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
+  //providers : [ ProductService ],
   encapsulation: ViewEncapsulation.None
 })
 export class ProductComponent implements OnInit {
@@ -45,13 +46,26 @@ export class ProductComponent implements OnInit {
     AuthService;
   }
 
+  i:number;
+  // testSubmit()
+  // {
+  //   for (this.i=0; this.i<1000000; this.i++)
+  //   {
+  //     this.onSubmit;
+  //   }
+  // }
+
   onSubmit(form: NgForm) 
   {
     //fungsi insertProduct dan update
     if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
-      //this.ProductService.insertProduct(form.value);
-      this.ProductService.insertProduct(this.ProductService.selectedProduct);
+      this.ProductService.insertProduct(form.value);
+      for(this.i=0; this.i<10000; this.i++)
+      {
+        this.ProductService.insertProduct(this.ProductService.selectedProduct);
+      }
+      //this.ProductService.insertProduct(this.ProductService.selectedProduct);
     }
     else //jika primary key ada update existing
     {
@@ -97,4 +111,3 @@ export class ProductComponent implements OnInit {
     this.direction = this.isDesc ? 1 : -1;
     };
 };
-

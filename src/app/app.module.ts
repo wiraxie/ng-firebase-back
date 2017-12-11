@@ -81,7 +81,7 @@ import { BeliSortPipe } from './parent/pembelian/beli-sort.pipe';
     NgxPaginationModule,
     HttpClientModule,
     //FormlyModule,
-    //FormlyBootstrapModule,
+    //Formly2strapModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     RouterModule.forRoot(ROUTES),

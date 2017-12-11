@@ -57,21 +57,21 @@ export class ParentComponent implements OnInit {
  
   onSignUp(): void 
   {
-    this.clearErrorMessage()
- 
-    if (this.validateForm(this.email, this.password)) {
-      this.AuthService.signUpWithEmail(this.email, this.password)
-        .catch(error => {
-          this.error = error
-         })
+    this.clearErrorMessage();
+    if (this.validateForm(this.email, this.password)) 
+    {
+      this.AuthService.signUpWithEmail(this.email, this.password).catch(error => {this.error = error});
+      //this.AuthService.emailVerfication();
     }
+    this.AuthService.emailVerfication();
   }
  
   onLoginEmail(): void 
   {
     this.clearErrorMessage()
  
-    if (this.validateForm(this.email, this.password)) {
+    if (this.validateForm(this.email, this.password)) 
+    {
       this.AuthService.loginWithEmail(this.email, this.password)
         .catch(error => 
         {
@@ -117,7 +117,7 @@ export class ParentComponent implements OnInit {
   showJual:boolean = false;
   showBeli:boolean = false;
 
-  CallLogin()
+  GoogleLogin()
   {
     this.AuthService.login();
   }

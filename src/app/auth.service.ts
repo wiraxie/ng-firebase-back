@@ -14,6 +14,7 @@ export class AuthService implements OnInit
 
   private authState: any = null;
   user: Observable<firebase.User>;
+  
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) 
   {
     this.afAuth.authState.subscribe((auth) => {this.authState = auth});
@@ -83,13 +84,29 @@ export class AuthService implements OnInit
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => 
       {
-        this.authState
+        this.authState;
       })
       .catch(error => 
       {
         console.log(error)
         throw error
       });
+  }
+
+  emailVerfication()
+  {
+    //this.authState.auth.getAuth().auth.sendEmailVerification();
+    //firebase.auth().currentUser.sendEmailVerification();
+    this.authState.auth.getAuth().auth.sendEmailVerification().then(function() 
+    {
+      firebase.auth().currentUser.sendEmailVerification();
+      //this.sendEmailVerification();
+      //let user:any = firebase.auth().currentUser;
+      //this.user.sendEmailVerification();
+    }).catch(function(error) 
+    {
+      // An error happened.
+    });
   }
  
   loginWithEmail(email: string, password: string)

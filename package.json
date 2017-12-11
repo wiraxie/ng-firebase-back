@@ -25,6 +25,7 @@
     "angularfire2": "^5.0.0-rc.4",
     "core-js": "^2.4.1",
     "firebase": "^4.6.2",
+    "firebase-admin": "^5.5.1",
     "ng-formly": "^2.0.0",
     "ng-sidebar": "^6.0.4",
     "ng2-validation": "^4.2.0",
