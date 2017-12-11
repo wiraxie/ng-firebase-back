@@ -60,12 +60,12 @@ export class ProductComponent implements OnInit {
     //fungsi insertProduct dan update
     if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
-      this.ProductService.insertProduct(form.value);
-      for(this.i=0; this.i<10000; this.i++)
-      {
-        this.ProductService.insertProduct(this.ProductService.selectedProduct);
-      }
-      //this.ProductService.insertProduct(this.ProductService.selectedProduct);
+      //this.ProductService.insertProduct(form.value);
+      // for(this.i=0; this.i<140; this.i++)
+      // {
+      //   this.ProductService.insertProduct(this.ProductService.selectedProduct);
+      // }
+      this.ProductService.insertProduct(this.ProductService.selectedProduct);
     }
     else //jika primary key ada update existing
     {
