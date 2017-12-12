@@ -23,6 +23,7 @@ import { AuthService } from './auth.service';
 declare var jquery:any;
 declare var $ :any;
 
+/*https://www.youtube.com/watch?v=wQ5z9SFBlek*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

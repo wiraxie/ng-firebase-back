@@ -47,25 +47,17 @@ export class ProductComponent implements OnInit {
   }
 
   i:number;
-  // testSubmit()
-  // {
-  //   for (this.i=0; this.i<1000000; this.i++)
-  //   {
-  //     this.onSubmit;
-  //   }
-  // }
-
+  
   onSubmit(form: NgForm) 
   {
     //fungsi insertProduct dan update
     if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
       //this.ProductService.insertProduct(form.value);
-      // for(this.i=0; this.i<140; this.i++)
-      // {
-      //   this.ProductService.insertProduct(this.ProductService.selectedProduct);
-      // }
-      this.ProductService.insertProduct(this.ProductService.selectedProduct);
+      for(this.i=0; this.i<140; this.i++)
+      {
+        this.ProductService.insertProduct(this.ProductService.selectedProduct);
+      }
     }
     else //jika primary key ada update existing
     {
