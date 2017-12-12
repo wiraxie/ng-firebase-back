@@ -12,7 +12,6 @@ import { PrdSortPipe } from './prd-sort.pipe';
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
-  //providers : [ ProductService ],
   encapsulation: ViewEncapsulation.None
 })
 export class ProductComponent implements OnInit {
@@ -54,10 +53,11 @@ export class ProductComponent implements OnInit {
     if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
       //this.ProductService.insertProduct(form.value);
-      for(this.i=0; this.i<140; this.i++)
-      {
-        this.ProductService.insertProduct(this.ProductService.selectedProduct);
-      }
+      // for(this.i=0; this.i<140; this.i++)
+      // {
+      //   this.ProductService.insertProduct(this.ProductService.selectedProduct);
+      // }
+      this.ProductService.insertProduct(this.ProductService.selectedProduct);
     }
     else //jika primary key ada update existing
     {
