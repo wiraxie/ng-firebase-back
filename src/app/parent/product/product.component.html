@@ -23,9 +23,9 @@
             <div>
             <label>Product Category</label>
             <select #prdCategory="ngModel" name="prdCategory" [(ngModel)]="ProductService.selectedProduct.prdCategory" class="form-control" required>
-              <option value="Liquid">Liquid</option>
-              <option value="Solid">Solid</option>
-              <option value="Gas">Gas</option>  
+              <option value="Vehicle">Vehicle</option>
+              <option value="Electronic">Electronic</option>
+              <option value="Other">Other</option>  
             </select>
               <p *ngIf="prdCategory.invalid && prdName.touched">Product Category Required!</p>
             </div>
@@ -35,7 +35,19 @@
                 <input class="form-control" name="prdSup" #prdSup="ngModel" [(ngModel)]="ProductService.selectedProduct.prdSup" placeholder="supplier" required/>
                 <p *ngIf="prdSup.invalid && prdSup.touched">Product Supplier Required!</p>
             </div>
+
+            <div class="form-group">
+              <label>Image URL</label>
+                  <input type="url" class="form-control" name="prdImage" #prdImage="ngModel" [(ngModel)]="ProductService.selectedProduct.prdImage" placeholder="Image URL" required/>
+                  <p *ngIf="prdImage.invalid && prdImage.touched">Product Image Required!</p>
+              </div>
           
+            <div class="form-group">
+              <label>Description</label>
+                <textarea class="form-control" name="prdDescription" #prdDescription="ngModel" [(ngModel)]="ProductService.selectedProduct.prdDescription" placeholder="Description" required></textarea>
+                <p *ngIf="prdDescription.invalid && prdDescription.touched">Product Description Required!</p>
+            </div>
+
             <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">
                 <p>PLEASE LOGIN TO SUBMIT</p>
                 <button type="submit" class="btn btn-primary" disabled title="PLEASE LOGIN TO SUBMIT">Submit</button>
@@ -79,9 +91,10 @@
       </tr>
 
       <tr *ngFor="let Product of productList | product: term | prdSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
-        <td>{{Product.prdName}}</td>
+        <td><input type="checkbox" name="checkbox" [attr.id]="Product.$prdKey" [value]="false"/>{{Product.prdName}}</td>
         <td>{{Product.prdCategory}}</td>
         <td>{{Product.prdSup}}</td>
+        <td><button type="button" class="btn btn-success" (click)="isDetail=!isDetail; onItemClick(Product)" data-toggle="modal" data-target="#detailModal">Details</button></td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Product)" data-toggle="modal" data-target="#myModal">Update</button></td>
         <td><button type="button" class="btn btn-danger" (click)="onDelete(Product.$prdKey)">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(ProductService.selectedProduct.$prdKey)">Delete</button></td> -->
@@ -91,3 +104,37 @@
   </li>
 </ul>
 </div>
+
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-body" id="prdDetail">
+          <ul style="list-style: none">
+            <h5><u>{{ProductService.selectedProduct.prdName}} Details</u></h5>
+            
+            <li>
+              <label>Name:</label> {{ProductService.selectedProduct.prdName}}
+            </li>
+            <li>
+              
+              <label>Product Category:</label> {{ProductService.selectedProduct.prdCategory}}
+            </li>
+
+            <li>
+              <label>Supplier:</label> {{ProductService.selectedProduct.prdSup}}
+            </li>
+
+            <li>
+              <label>Image:</label> <img src="{{ProductService.selectedProduct.prdImage}}">
+            </li>
+
+            <li>
+              <label>Description:</label> {{ProductService.selectedProduct.prdDescription}}
+            </li>
+            
+          </ul>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

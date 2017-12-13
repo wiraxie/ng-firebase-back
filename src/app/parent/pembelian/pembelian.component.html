@@ -66,7 +66,7 @@
       </tr>
 
       <tr *ngFor="let Pembelian of pembelianList | pembelian: term | beliSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
-        <td>{{Pembelian.supName}}</td>
+        <td><input type="checkbox" name="checkbox" [attr.id]="Pembelian.$prdKey"/>{{Pembelian.supName}}</td>
         <td>{{Pembelian.product}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Pembelian)" data-toggle="modal" data-target="#myModal">Update</button></td>
         <td><button type="button" class="btn btn-danger" (click)="onDelete(Pembelian.$beliKey)">Delete</button></td>

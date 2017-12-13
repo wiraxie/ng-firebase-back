@@ -12,6 +12,7 @@ import { PrdSortPipe } from './prd-sort.pipe';
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
+  //providers : [ ProductService ],
   encapsulation: ViewEncapsulation.None
 })
 export class ProductComponent implements OnInit {
@@ -25,6 +26,7 @@ export class ProductComponent implements OnInit {
 
   p:number = 1; //utk page
   isValid:boolean = true;
+  isDetail:boolean = true;
 
   ngOnInit() 
   {
@@ -53,7 +55,7 @@ export class ProductComponent implements OnInit {
     if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
       //this.ProductService.insertProduct(form.value);
-      // for(this.i=0; this.i<140; this.i++)
+      // for(this.i=0; this.i<150; this.i++)
       // {
       //   this.ProductService.insertProduct(this.ProductService.selectedProduct);
       // }
@@ -76,15 +78,25 @@ export class ProductComponent implements OnInit {
       $prdKey: null,
       prdName: '',
       prdCategory:'',
-      prdSup:''
+      prdSup:'',
+      prdImage: null,
+      prdDescription: '',
     }
   }
 
  onDelete($prdKey: string) 
  {
-    if (confirm('Are you sure to delete this record ?') == true) {
+    if (confirm('Are you sure to delete this record ?') == true) 
+    {
       this.ProductService.deleteProduct($prdKey);
     }
+    // else if(document.getElementById("$prdKey").value == true) //checkbox delete here
+    // {
+    //   if(confirm('Are you sure to delete these records ?') == true)
+    //   {
+    //     this.ProductService.deleteProduct($prdKey);
+    //   }
+    // }
  }
 
   onItemClick(prd : Product)

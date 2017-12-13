@@ -91,7 +91,7 @@
           </tr>
     
           <tr *ngFor="let Customer of customerList | customer: term | cstSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
-            <td>{{Customer.cstId}}</td>
+            <td><input type="checkbox" name="checkbox" [attr.id]="Customer.$prdKey"/>{{Customer.cstId}}</td>
             <td>{{Customer.cstName}}</td>
             <td>{{Customer.cstCompany}}</td>
             <!-- <td>{{Customer.cstEmail}}</td>

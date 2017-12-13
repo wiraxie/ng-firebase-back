@@ -38,6 +38,8 @@ export class ProductService {
       prdName: Product.prdName,
       prdCategory: Product.prdCategory,
       prdSup: Product.prdSup,
+      prdImage: Product.prdImage,
+      prdDescription: Product.prdDescription
     });
   }
   //setelah jadi panggil di onSubmit()
@@ -50,6 +52,8 @@ export class ProductService {
       prdName: prd.prdName,
       prdCategory: prd.prdCategory,
       prdSup: prd.prdSup,
+      prdImage: prd.prdImage,
+      prdDescription: prd.prdDescription
     })
   }
  //end of update
@@ -59,6 +63,7 @@ export class ProductService {
   {
     //this.productList.remove($prdKey);
     this.productList.remove($prdKey);
+    console.log('here', this.selectedProduct);
   }
   //end of delete
 

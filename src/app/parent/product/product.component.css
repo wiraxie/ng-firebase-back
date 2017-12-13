@@ -6,13 +6,35 @@ p
     color: red;
 }
 
-input, select
+input, select, textarea
 {
     max-width: 42%;
+}
+
+img
+{
+    display: inline-block;
+    max-width: 210px;
+    max-height: 210px;
+}
+
+.floating-box 
+{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 14px;
+    border: 3px solid #3C8DBC;  
 }
 
 #prdContainer
 {
     width: 70%;
     max-width: 70%;
+}
+
+#prdDetail ul, #prdDetail li 
+{
+    margin: 0; padding: 0;
+    text-align: left;
 }
