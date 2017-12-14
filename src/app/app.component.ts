@@ -1,21 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-//import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+
 import { ParentComponent } from './parent/parent.component';
 
+import { ProductComponent } from './parent/product/product.component';
 import { ProductService } from './parent/product/product.service';
 import { Product } from './parent/product/product';
-
-import { SupplierService } from './parent/supplier/supplier.service';
-import { Supplier } from './parent/supplier/supplier';
-
-import { CustomerService } from './parent/customer/customer.service';
-import { Customer } from './parent/customer/customer';
-
-import { PembelianService } from './parent/pembelian/pembelian.service';
-import { Pembelian } from './parent/pembelian/pembelian';
-
-import { PenjualanService } from './parent/penjualan/penjualan.service';
-import { Penjualan } from './parent/penjualan/penjualan';
 
 //import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
@@ -31,12 +20,35 @@ declare var $ :any;
 })
 export class AppComponent implements OnInit {
  
+  productList: Product[] = [];
+
+  showProduct:boolean = true;
+  showCustomer:boolean = false;
+  showSupplier:boolean = false;
+  showJual:boolean = false;
+  showBeli:boolean = false;
+  
+  prdList:boolean = true;
+
   ngOnInit() 
   {
-    //logout();
+    //template
+    //getData dipanggil untuk view list
+    var x = this.ProductService.getData();
+    x.snapshotChanges().subscribe(item => 
+    {
+      this.productList = [];
+      item.forEach(element => 
+      {
+        var y = element.payload.toJSON();
+        y["$prdKey"] = element.key;
+        this.productList.push(y as Product);
+      });
+    });
   }
+
   pushMenu:boolean= false;
-  constructor(private AuthService: AuthService) {}
+  constructor(private AuthService: AuthService, private ProductService: ProductService) {}
 
   isBtn:boolean = true;
 

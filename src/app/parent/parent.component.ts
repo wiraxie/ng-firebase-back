@@ -111,12 +111,6 @@ export class ParentComponent implements OnInit {
   }
   //.................................test by email.......................................//
 
-  showProduct:boolean = true;
-  showCustomer:boolean = false;
-  showSupplier:boolean = false;
-  showJual:boolean = false;
-  showBeli:boolean = false;
-
   GoogleLogin()
   {
     this.AuthService.login();

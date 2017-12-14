@@ -94,7 +94,6 @@
         <td><input type="checkbox" name="checkbox" [attr.id]="Product.$prdKey" [value]="false"/>{{Product.prdName}}</td>
         <td>{{Product.prdCategory}}</td>
         <td>{{Product.prdSup}}</td>
-        <td><button type="button" class="btn btn-success" (click)="isDetail=!isDetail; onItemClick(Product)" data-toggle="modal" data-target="#detailModal">Details</button></td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Product)" data-toggle="modal" data-target="#myModal">Update</button></td>
         <td><button type="button" class="btn btn-danger" (click)="onDelete(Product.$prdKey)">Delete</button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="onDelete(ProductService.selectedProduct.$prdKey)">Delete</button></td> -->
@@ -104,38 +103,3 @@
   </li>
 </ul>
 </div>
-
-<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-body" id="prdDetail">
-          <ul style="list-style: none">
-            <h5><u>{{ProductService.selectedProduct.prdName}} Details</u></h5>
-            
-            <li>
-              <label>Name:</label> {{ProductService.selectedProduct.prdName}}
-            </li>
-
-            <li>
-              <label>Product Category:</label> {{ProductService.selectedProduct.prdCategory}}
-            </li>
-
-            <li>
-              <label>Supplier:</label> {{ProductService.selectedProduct.prdSup}}
-            </li>
-
-            <li>
-              <label>Image:</label> <img src="{{ProductService.selectedProduct.prdImage}}">
-            </li>
-
-            <li>
-              <label>Description:</label> {{ProductService.selectedProduct.prdDescription}}
-            </li>
-            
-          </ul>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  

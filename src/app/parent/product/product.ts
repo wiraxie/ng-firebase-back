@@ -7,5 +7,6 @@ export class Product
     prdCategory: string; //Category
     prdSup: string; //supplier
     prdImage: Url;
+    //prdImage: ImageData;
     prdDescription: string;
 }
