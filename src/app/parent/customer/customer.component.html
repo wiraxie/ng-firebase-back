@@ -1,4 +1,5 @@
 <h2 align="center">Customer</h2>
+<h2 align="center">Customer</h2>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" (click)="resetForm()">ADD</button>
 
@@ -91,7 +92,7 @@
           </tr>
     
           <tr *ngFor="let Customer of customerList | customer: term | cstSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
-            <td><input type="checkbox" name="checkbox" [attr.id]="Customer.$prdKey"/>{{Customer.cstId}}</td>
+            <td><!--<input type="checkbox" name="checkbox" [attr.id]="Customer.$prdKey"/>-->{{Customer.cstId}}</td>
             <td>{{Customer.cstName}}</td>
             <td>{{Customer.cstCompany}}</td>
             <!-- <td>{{Customer.cstEmail}}</td>

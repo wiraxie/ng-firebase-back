@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
  
   productList: Product[] = [];
 
-  showProduct:boolean = true;
+  showProduct:boolean = false;
   showCustomer:boolean = false;
   showSupplier:boolean = false;
   showJual:boolean = false;
@@ -65,5 +65,4 @@ export class AppComponent implements OnInit {
   {
     this.AuthService.signOut();
   }
-
 }

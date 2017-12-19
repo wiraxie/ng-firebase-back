@@ -1,4 +1,5 @@
 import { Url } from "url";
+import { HtmlTagDefinition, TagContentType, TagDefinition, HtmlParser } from "@angular/compiler";
 
 export class Product 
 {

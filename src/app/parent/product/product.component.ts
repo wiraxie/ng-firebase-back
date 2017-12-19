@@ -8,6 +8,9 @@ import { Product } from './product'; //class
 import { ProductPipe } from './product.pipe';
 import { PrdSortPipe } from './prd-sort.pipe';
 
+declare var jquery:any;
+declare var $ :any;
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -15,7 +18,8 @@ import { PrdSortPipe } from './prd-sort.pipe';
   //providers : [ ProductService ],
   encapsulation: ViewEncapsulation.None
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit 
+{
 
   //class Product
   //productList: Product[];
@@ -104,6 +108,30 @@ export class ProductComponent implements OnInit {
     this.ProductService.selectedProduct = Object.assign({}, prd);
   }
 
+  txtBold()
+  {
+    $('.boldText').click(function()
+    {
+      $('textarea').toggleClass("bold");
+    });
+  }
+
+  txtItalic()
+  {
+    $('.italicText').click(function()
+    {
+      $('textarea').toggleClass("italic");
+    });
+  }
+
+  txtUnderline()
+  {
+    $('.underlineText').click(function()
+    {
+      $('textarea').toggleClass("underline");
+    });
+  }
+
   //sorting//
   isDesc: boolean = false;
   column: string = "prdName";
@@ -114,4 +142,4 @@ export class ProductComponent implements OnInit {
     this.column = property;
     this.direction = this.isDesc ? 1 : -1;
     };
-};
+}

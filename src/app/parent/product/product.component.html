@@ -44,6 +44,7 @@
           
             <div class="form-group">
               <label>Description</label>
+			  <a href="#"><span class="glyphicon glyphicon-question-sign"></span></a>
                 <textarea class="form-control" name="prdDescription" #prdDescription="ngModel" [(ngModel)]="ProductService.selectedProduct.prdDescription" placeholder="Description" required></textarea>
                 <p *ngIf="prdDescription.invalid && prdDescription.touched">Product Description Required!</p>
             </div>
@@ -91,7 +92,7 @@
       </tr>
 
       <tr *ngFor="let Product of productList | product: term | prdSort: {property: column, direction: direction} | paginate: { itemsPerPage: 3, currentPage: p }">
-        <td><input type="checkbox" name="checkbox" [attr.id]="Product.$prdKey" [value]="false"/>{{Product.prdName}}</td>
+        <td><!--<input type="checkbox" name="checkbox" [attr.id]="Product.$prdKey" [value]="false"/>-->{{Product.prdName}}</td>
         <td>{{Product.prdCategory}}</td>
         <td>{{Product.prdSup}}</td>
         <td><button type="button" class="btn btn-warning" (click)="onItemClick(Product)" data-toggle="modal" data-target="#myModal">Update</button></td>
