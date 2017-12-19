@@ -18,6 +18,11 @@ img
     max-height: 210px;
 }
 
+h5
+{
+	text-align: left;
+}
+
 .floating-box 
 {
     display: inline-block;

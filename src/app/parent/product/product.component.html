@@ -44,10 +44,16 @@
           
             <div class="form-group">
               <label>Description</label>
-			  <a href="#"><span class="glyphicon glyphicon-question-sign"></span></a>
+			  <a href="#"><span class="glyphicon glyphicon-question-sign" (click)="isDetail=!isDetail"></span></a>
                 <textarea class="form-control" name="prdDescription" #prdDescription="ngModel" [(ngModel)]="ProductService.selectedProduct.prdDescription" placeholder="Description" required></textarea>
                 <p *ngIf="prdDescription.invalid && prdDescription.touched">Product Description Required!</p>
-            </div>
+				
+				<div *ngIf="!isDetail">
+					<h5><![CDATA[<b>some texts</b>]]> to <b>bold</b> some texts</h5>
+					<h5><![CDATA[<i>some texts</i>]]> to <i>italic</i> some texts</h5>
+					<h5><![CDATA[<u>some texts</u>]]> to <u>underline</u> some texts</h5>
+				</div>
+			</div>
 
             <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">
                 <p>PLEASE LOGIN TO SUBMIT</p>
