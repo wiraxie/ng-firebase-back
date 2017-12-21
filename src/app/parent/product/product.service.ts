@@ -89,7 +89,6 @@ export class ProductService {
       () => {
         // success
         this.selectedProduct.prdImage = fileUpload.url = uploadTask.snapshot.downloadURL
-        //fileUpload.name = fileUpload.file.name
         this.saveFileData(fileUpload)
       }
     );
