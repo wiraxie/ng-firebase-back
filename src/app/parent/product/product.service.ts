@@ -77,16 +77,19 @@ export class ProductService {
     const uploadTask = storageRef.child(`${this.basePath}/${fileUpload.file.name}`).put(fileUpload.file);
  
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) => {
+      (snapshot) => 
+      {
         // in progress
         const snap = snapshot as firebase.storage.UploadTaskSnapshot
         progress.percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100)
       },
-      (error) => {
+      (error) => 
+      {
         // fail
         console.log(error)
       },
-      () => {
+      () => 
+      {
         // success
         this.selectedProduct.prdImage = fileUpload.url = uploadTask.snapshot.downloadURL
         this.saveFileData(fileUpload)
@@ -94,7 +97,8 @@ export class ProductService {
     );
   }
  
-  private saveFileData(fileUpload: FileUpload) {
+  private saveFileData(fileUpload: FileUpload) 
+  {
     this.firebase.list(`${this.basePath}/`).push(fileUpload);
   }
  // ..testing file upload
