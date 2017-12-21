@@ -65,13 +65,15 @@ export class CustomerComponent implements OnInit {
       //fungsi reset
       if (form != null)
         form.reset();
-      this.CustomerService.selectedCustomer = {
-        $cstKey: null,
+      this.CustomerService.selectedCustomer = 
+      {
+        $cstKey: 'null',
         cstId: '',
-        cstName:'',
-        cstCompany:'',
+        cstName: '',
+        cstCompany: '',
         cstEmail: '',
-        cstPhone:''
+        cstPhone: '',
+        cstLogo: null,
       }
     }
   

@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 
 //import untuk firebase
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'
+import * as firebase from 'firebase';
 
 import { Product } from './product'; //import class product
+import { FileUpload } from './file-upload';
 
 @Injectable()
 export class ProductService {
@@ -11,7 +13,9 @@ export class ProductService {
   //define list variable
   productList: AngularFireList<any>;
 
-  selectedProduct: Product = new Product();
+  selectedProduct: Product = new Product ();
+  currentFileUpload: FileUpload;
+  //selectedProduct: Product;
 
   //dependency injection here
   constructor(private firebase: AngularFireDatabase) { }
@@ -39,7 +43,7 @@ export class ProductService {
       prdCategory: Product.prdCategory,
       prdSup: Product.prdSup,
       prdImage: Product.prdImage,
-      prdDescription: Product.prdDescription
+      prdDescription: Product.prdDescription,
     });
   }
   //setelah jadi panggil di onSubmit()
@@ -52,7 +56,6 @@ export class ProductService {
       prdName: prd.prdName,
       prdCategory: prd.prdCategory,
       prdSup: prd.prdSup,
-      prdImage: prd.prdImage,
       prdDescription: prd.prdDescription
     })
   }
@@ -63,8 +66,37 @@ export class ProductService {
   {
     //this.productList.remove($prdKey);
     this.productList.remove($prdKey);
-    console.log('here', this.selectedProduct);
   }
   //end of delete
 
+  //testing file upload//
+  private basePath = '/product';
+ 
+  pushFileToStorage(fileUpload: FileUpload, progress: {percentage: number}) {
+    const storageRef = firebase.storage().ref();
+    const uploadTask = storageRef.child(`${this.basePath}/${fileUpload.file.name}`).put(fileUpload.file);
+ 
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) => {
+        // in progress
+        const snap = snapshot as firebase.storage.UploadTaskSnapshot
+        progress.percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100)
+      },
+      (error) => {
+        // fail
+        console.log(error)
+      },
+      () => {
+        // success
+        this.selectedProduct.prdImage = fileUpload.url = uploadTask.snapshot.downloadURL
+        //fileUpload.name = fileUpload.file.name
+        this.saveFileData(fileUpload)
+      }
+    );
+  }
+ 
+  private saveFileData(fileUpload: FileUpload) {
+    this.firebase.list(`${this.basePath}/`).push(fileUpload);
+  }
+ // ..testing file upload
 }

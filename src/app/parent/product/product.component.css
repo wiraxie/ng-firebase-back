@@ -14,8 +14,8 @@ input, select, textarea
 img
 {
     display: inline-block;
-    max-width: 210px;
-    max-height: 210px;
+    max-width: 105px;
+    max-height: 105px;
 }
 
 h5

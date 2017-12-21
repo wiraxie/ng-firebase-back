@@ -13,6 +13,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import * as firebase from 'firebase/app';
 
+//import * as firebase from 'firebase';
+
 import { AppComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';
 import { ProductComponent } from './parent/product/product.component';
@@ -85,7 +87,7 @@ import { BeliSortPipe } from './parent/pembelian/beli-sort.pipe';
     AngularFireAuthModule,
     AngularFirestoreModule,
     RouterModule.forRoot(ROUTES),
-    AngularFireModule.initializeApp(environment.firebaseConfiguration, 'app-root'), //environtment. yg di environtment 
+    AngularFireModule.initializeApp(environment.firebaseConfiguration), //environtment. yg di environtment 
   ],
   providers: [ AuthService, ParentService, ProductService, CustomerService, SupplierService, PenjualanService, PembelianService],
   bootstrap: 

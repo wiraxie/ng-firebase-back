@@ -35,7 +35,8 @@ export class CustomerService {
         cstName: Customer.cstName,
         cstCompany: Customer.cstCompany,
         cstEmail: Customer.cstEmail,
-        cstPhone: Customer.cstPhone
+        cstPhone: Customer.cstPhone,
+        cstLogo: Customer.cstLogo,
       });
     }
     //setelah jadi panggil di onSubmit()
@@ -49,7 +50,8 @@ export class CustomerService {
         cstName: cst.cstName,
         cstCompany: cst.cstCompany,
         cstEmail: cst.cstEmail,
-        cstPhone: cst.cstPhone
+        cstPhone: cst.cstPhone,
+        cstLogo: cst.cstLogo,
       })
     }
    //end of update

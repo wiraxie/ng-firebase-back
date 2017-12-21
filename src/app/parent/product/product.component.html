@@ -11,7 +11,7 @@
       </div>
       <div class="modal-body">
 
-          <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)" ngNativeValidate>
+          <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm); upload()" ngNativeValidate>
             <input type="hidden" name="$prdKey" #$prdKey="ngModel" [(ngModel)]="ProductService.selectedProduct.$prdKey">
             
             <div class="form-group">
@@ -36,23 +36,34 @@
                 <p *ngIf="prdSup.invalid && prdSup.touched">Product Supplier Required!</p>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label>Image URL</label>
                   <input type="url" class="form-control" name="prdImage" #prdImage="ngModel" [(ngModel)]="ProductService.selectedProduct.prdImage" placeholder="Image URL" required/>
                   <p *ngIf="prdImage.invalid && prdImage.touched">Product Image Required!</p>
+            </div> -->
+            
+            <div *ngIf="currentFileUpload" class="progress" style="width:210px">
+              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}"> 
+                {{progress.percentage}}%
               </div>
+            </div>
+            <label>Upload an Image</label>
+            <input type='file' class="form-control" (change)="selectFile($event)">
+            <!-- <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">Upload</button> -->
+            <!-- <img [src]="url"> -->
           
+            <br><br>
             <div class="form-group">
               <label>Description</label>
-			  <a href="#"><span class="glyphicon glyphicon-question-sign" (click)="isDetail=!isDetail"></span></a>
+			        <a href="#"><span class="glyphicon glyphicon-question-sign" (click)="isDetail=!isDetail"></span></a>
                 <textarea class="form-control" name="prdDescription" #prdDescription="ngModel" [(ngModel)]="ProductService.selectedProduct.prdDescription" placeholder="Description" required></textarea>
                 <p *ngIf="prdDescription.invalid && prdDescription.touched">Product Description Required!</p>
 				
-				<div *ngIf="!isDetail">
-					<h5><![CDATA[<b>some texts</b>]]> to <b>bold</b> some texts</h5>
-					<h5><![CDATA[<i>some texts</i>]]> to <i>italic</i> some texts</h5>
-					<h5><![CDATA[<u>some texts</u>]]> to <u>underline</u> some texts</h5>
-				</div>
+            <div *ngIf="!isDetail">
+              <h5><![CDATA[<b>some texts</b>]]> to <b>bold</b> some texts</h5>
+              <h5><![CDATA[<i>some texts</i>]]> to <i>italic</i> some texts</h5>
+              <h5><![CDATA[<u>some texts</u>]]> to <u>underline</u> some texts</h5>
+            </div>
 			</div>
 
             <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">

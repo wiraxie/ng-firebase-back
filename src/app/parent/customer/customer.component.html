@@ -1,5 +1,4 @@
 <h2 align="center">Customer</h2>
-<h2 align="center">Customer</h2>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" (click)="resetForm()">ADD</button>
 
@@ -29,11 +28,7 @@
            
               <div>
                 <label>Customer Company</label>
-                <select #cstCompany="ngModel" name="cstCompany" [(ngModel)]="CustomerService.selectedCustomer.cstCompany" class="form-control" required>
-                  <option value="Hydrogen Dioxide">Hydrogen Dioxide</option>
-                  <option value="Natrium Chloride">Natrium Chloride</option>
-                  <option value="Nitrogen Dioxide">Nitrogen Dioxide</option>  
-                </select>
+                <input class="form-control" name="cstCompany" #cstCompany="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstCompany" required/>
                 <p *ngIf="cstCompany.invalid && cstCompany.touched">Customer Company Required!</p>
               </div>
 
@@ -47,6 +42,12 @@
                 <label>Customer Phone</label>
                 <input class="form-control" name="cstPhone" #cstPhone="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstPhone" required/>
                 <p *ngIf="cstPhone.invalid && cstPhone.touched">Customer Phone Required</p>
+              </div>
+
+              <div class="form-group">
+                <label>Customer Logo</label>
+                    <input type="url" class="form-control" name="cstLogo" #cstLogo="ngModel" [(ngModel)]="CustomerService.selectedCustomer.cstLogo" placeholder="Image URL" required/>
+                    <p *ngIf="cstLogo.invalid && cstLogo.touched">Customer Logo Required!</p>
               </div>
         
               <div class="form-group" *ngIf="!AuthService.currentUser; else authenticated">

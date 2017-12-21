@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  
+
   //dari website firebase
   firebaseConfiguration : 
   {
@@ -14,6 +14,6 @@ export const environment = {
     databaseURL: "https://ng-product.firebaseio.com",
     projectId: "ng-product",
     storageBucket: "ng-product.appspot.com",
-    messagingSenderId: "817999455690"
+    messagingSenderId: "817999455690",
   }
 };

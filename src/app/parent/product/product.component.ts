@@ -4,9 +4,14 @@ import { NgForm } from '@angular/forms';
 import { ProductService } from './product.service'; //service
 import { AuthService } from '../../auth.service';
 
-import { Product } from './product'; //class
+//class
+import { Product } from './product'; 
+import { FileUpload } from './file-upload';
+
 import { ProductPipe } from './product.pipe';
 import { PrdSortPipe } from './prd-sort.pipe';
+
+import * as firebase from 'firebase'
 
 declare var jquery:any;
 declare var $ :any;
@@ -47,7 +52,6 @@ export class ProductComponent implements OnInit
         this.productList.push(y as Product);
       });
     });
-
     AuthService;
   }
 
@@ -59,10 +63,6 @@ export class ProductComponent implements OnInit
     if (form.value.$prdKey == null) //jika primary key tidak ada, bikin baru
     {
       //this.ProductService.insertProduct(form.value);
-      // for(this.i=0; this.i<150; this.i++)
-      // {
-      //   this.ProductService.insertProduct(this.ProductService.selectedProduct);
-      // }
       this.ProductService.insertProduct(this.ProductService.selectedProduct);
     }
     else //jika primary key ada update existing
@@ -83,53 +83,29 @@ export class ProductComponent implements OnInit
       prdName: '',
       prdCategory:'',
       prdSup:'',
-      prdImage: null,
+      prdImage: '',
       prdDescription: '',
     }
   }
 
- onDelete($prdKey: string) 
- {
-    if (confirm('Are you sure to delete this record ?') == true) 
-    {
-      this.ProductService.deleteProduct($prdKey);
-    }
-    // else if(document.getElementById("$prdKey").value == true) //checkbox delete here
-    // {
-    //   if(confirm('Are you sure to delete these records ?') == true)
-    //   {
-    //     this.ProductService.deleteProduct($prdKey);
-    //   }
-    // }
- }
+  onDelete($prdKey: string) 
+  {
+      if (confirm('Are you sure to delete this record ?') == true) 
+      {
+        this.ProductService.deleteProduct($prdKey);
+      }
+      // else if(document.getElementById("$prdKey").value == true) //checkbox delete here
+      // {
+      //   if(confirm('Are you sure to delete these records ?') == true)
+      //   {
+      //     this.ProductService.deleteProduct($prdKey);
+      //   }
+      // }
+  }
 
   onItemClick(prd : Product)
   {
     this.ProductService.selectedProduct = Object.assign({}, prd);
-  }
-
-  txtBold()
-  {
-    $('.boldText').click(function()
-    {
-      $('textarea').toggleClass("bold");
-    });
-  }
-
-  txtItalic()
-  {
-    $('.italicText').click(function()
-    {
-      $('textarea').toggleClass("italic");
-    });
-  }
-
-  txtUnderline()
-  {
-    $('.underlineText').click(function()
-    {
-      $('textarea').toggleClass("underline");
-    });
   }
 
   //sorting//
@@ -137,9 +113,29 @@ export class ProductComponent implements OnInit
   column: string = "prdName";
   records = this.ProductService.productList
   direction: number;
-  sort(property){
+  sort(property)
+  {
     this.isDesc = !this.isDesc; //change the direction    
     this.column = property;
     this.direction = this.isDesc ? 1 : -1;
-    };
+  };
+
+    //test upload file//
+    selectedFiles: FileList;
+    currentFileUpload: FileUpload;
+    progress: {percentage: number} = {percentage: 0}
+    
+    selectFile(event) 
+    {
+      this.selectedFiles = event.target.files;
+    }
+
+    item = [];
+    upload() 
+    {
+      const file = this.selectedFiles.item(0);
+      this.currentFileUpload = new FileUpload(file);
+      this.ProductService.pushFileToStorage(this.currentFileUpload, this.progress);
+    }
+    //test upload file//
 }

@@ -1,3 +1,5 @@
+import { Url } from "url";
+
 export class Customer {
     $cstKey: string;
     cstId: string;
@@ -5,4 +7,5 @@ export class Customer {
     cstCompany: string;
     cstEmail: string;
     cstPhone: string;
+    cstLogo: Url;
 }
