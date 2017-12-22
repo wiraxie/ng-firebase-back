@@ -32,34 +32,6 @@ export class ProductService {
   //setelah jadi panggil di ngOnInit()
   //end of view
 
-  //template add
-  insertProduct(Product: Product) 
-  {
-  //  this.productList.push(
-  //  {
-  //   prdName: Product.prdName,
-  //   prdCategory: Product.prdCategory,
-  //   prdSup: Product.prdSup,
-  //   prdUrl: Product.prdUrl, //
-  //   prdDescription: Product.prdDescription,
-  //   });
-  }
-   //setelah jadi panggil di onSubmit()
-   //end of add
-
-  //template update
-  updateProduct(prd : Product)
-  {
-    // this.productList.update(prd.$prdKey,
-    // {
-    //   prdName: prd.prdName,
-    //   prdCategory: prd.prdCategory,
-    //   prdSup: prd.prdSup,
-    //   prdDescription: prd.prdDescription
-    // })
-  }
- //end of update
-
   //template delete
   deleteProduct($prdKey : string)
   {

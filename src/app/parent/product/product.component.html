@@ -42,11 +42,6 @@
                   <p *ngIf="prdImage.invalid && prdImage.touched">Product Image Required!</p>
             </div> -->
             
-            <div *ngIf="currentFileUpload" class="progress" style="width:210px">
-              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}"> 
-                {{progress.percentage}}%
-              </div>
-            </div>
             <label>Upload an Image</label>
             <input type='file' class="form-control" (change)="selectFile($event)" name="prdImage" required/>
             <!-- <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">Upload</button> -->
@@ -58,7 +53,13 @@
 			        <a href="#"><span class="glyphicon glyphicon-question-sign" (click)="isDetail=!isDetail"></span></a>
                 <textarea class="form-control" name="prdDescription" #prdDescription="ngModel" [(ngModel)]="ProductService.selectedProduct.prdDescription" placeholder="Description" required></textarea>
                 <p *ngIf="prdDescription.invalid && prdDescription.touched">Product Description Required!</p>
-				
+        
+            <div *ngIf="currentFileUpload" class="progress" style="width:210px">
+              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}"> 
+                {{progress.percentage}}%
+              </div>
+            </div>
+
             <div *ngIf="!isDetail">
               <h5><![CDATA[<b>some texts</b>]]> to <b>bold</b> some texts</h5>
               <h5><![CDATA[<i>some texts</i>]]> to <i>italic</i> some texts</h5>
@@ -96,7 +97,7 @@
     <table class="table table-striped table-responsive">
       <tr>
         <th (click)="sort('prdName')">
-        <i class="fa" [ngClass]="{'fa-sort': column != 'prdName', 'fa-sort-asc': (column == 'prdName' && isDesc), 'fa-sort-desc': (column == 'prdName' && !isDesc) }" aria-hidden="true"></i> 
+        <i class="fa" [ngClass]="{'fa-sort': column != 'prdName', 'fa-sort-asc': (column == 'prdName' && isDesc), 'fa-sort-desc': (column == 'prdName' && !isDesc) }" aria-hidden="true"></i>
         Name</th>
          
         <th (click)="sort('prdCategory')">
