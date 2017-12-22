@@ -5,7 +5,6 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'
 import * as firebase from 'firebase';
 
 import { Product } from './product'; //import class product
-//import { FileUpload } from './file-upload';
 
 @Injectable()
 export class ProductService {
@@ -41,7 +40,7 @@ export class ProductService {
   //   prdName: Product.prdName,
   //   prdCategory: Product.prdCategory,
   //   prdSup: Product.prdSup,
-  //   prdUrl: Product.prdUrl, // <--di sini
+  //   prdUrl: Product.prdUrl, //
   //   prdDescription: Product.prdDescription,
   //   });
   }
@@ -51,13 +50,13 @@ export class ProductService {
   //template update
   updateProduct(prd : Product)
   {
-    this.productList.update(prd.$prdKey,
-    {
-      prdName: prd.prdName,
-      prdCategory: prd.prdCategory,
-      prdSup: prd.prdSup,
-      prdDescription: prd.prdDescription
-    })
+    // this.productList.update(prd.$prdKey,
+    // {
+    //   prdName: prd.prdName,
+    //   prdCategory: prd.prdCategory,
+    //   prdSup: prd.prdSup,
+    //   prdDescription: prd.prdDescription
+    // })
   }
  //end of update
 
@@ -91,13 +90,22 @@ export class ProductService {
       () => 
       {
         // success
-        Product.prdName = Product.file.name,
-        Product.prdCategory = Product.file.name,
-        Product.prdSup = Product.file.name,
-        Product.prdDescription = Product.file.name,
-        Product.prdUrl = uploadTask.snapshot.downloadURL,
-        Product.prdImage = Product.file.name,
         
+        if (this.selectedProduct.$prdKey == null)
+        {
+          this.productList.push
+          ({
+            prdName:  this.selectedProduct.prdName,
+            prdCategory:  this.selectedProduct.prdCategory,
+            prdSup: this.selectedProduct.prdSup,
+            prdDescription:  this.selectedProduct.prdDescription,
+            prdUrl: this.selectedProduct.prdUrl = uploadTask.snapshot.downloadURL,
+            prdImage: this.selectedProduct.prdImage = Product.file.name,
+          })
+        }else if(this.selectedProduct.$prdKey != null)
+        {
+          
+        }
 
         this.saveFileData(Product)
       }

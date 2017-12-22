@@ -8,7 +8,7 @@ export class Product
 
     prdImage: string; //name
     prdUrl: string; //url
-    file: File;
+    file: File; //file
 
     constructor(file: File) 
     {

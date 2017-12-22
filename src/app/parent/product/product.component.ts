@@ -6,7 +6,6 @@ import { AuthService } from '../../auth.service';
 
 //class
 import { Product } from './product'; 
-//import { FileUpload } from './file-upload';
 
 import { ProductPipe } from './product.pipe';
 import { PrdSortPipe } from './prd-sort.pipe';
