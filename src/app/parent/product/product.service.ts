@@ -104,7 +104,15 @@ export class ProductService {
           })
         }else if(this.selectedProduct.$prdKey != null)
         {
-          
+          this.productList.update(this.selectedProduct.$prdKey, 
+          {
+            prdName:  this.selectedProduct.prdName,
+            prdCategory:  this.selectedProduct.prdCategory,
+            prdSup: this.selectedProduct.prdSup,
+            prdDescription:  this.selectedProduct.prdDescription,
+            prdUrl: this.selectedProduct.prdUrl = uploadTask.snapshot.downloadURL,
+            prdImage: this.selectedProduct.prdImage = Product.file.name,
+          })
         }
 
         this.saveFileData(Product)

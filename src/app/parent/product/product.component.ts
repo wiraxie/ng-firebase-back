@@ -131,7 +131,7 @@ export class ProductComponent implements OnInit
       this.selectedFiles = event.target.files;
     }
 
-    //item = [];
+    item:any = [];
     upload() 
     {
       const file = this.selectedFiles.item(0);
