@@ -6,7 +6,7 @@ import { AuthService } from '../../auth.service';
 
 //class
 import { Product } from './product'; 
-import { FileUpload } from './file-upload';
+//import { FileUpload } from './file-upload';
 
 import { ProductPipe } from './product.pipe';
 import { PrdSortPipe } from './prd-sort.pipe';
@@ -83,8 +83,10 @@ export class ProductComponent implements OnInit
       prdName: '',
       prdCategory:'',
       prdSup:'',
-      prdImage: '',
       prdDescription: '',
+      prdImage: '',
+      prdUrl:'',
+      file: null,
     }
   }
 
@@ -122,7 +124,7 @@ export class ProductComponent implements OnInit
 
     //test upload file//
     selectedFiles: FileList;
-    currentFileUpload: FileUpload;
+    currentFileUpload: Product;
     progress: {percentage: number} = {percentage: 0}
     
     selectFile(event) 
@@ -130,11 +132,11 @@ export class ProductComponent implements OnInit
       this.selectedFiles = event.target.files;
     }
 
-    item = [];
+    //item = [];
     upload() 
     {
       const file = this.selectedFiles.item(0);
-      this.currentFileUpload = new FileUpload(file);
+      this.currentFileUpload = new Product(file);
       this.ProductService.pushFileToStorage(this.currentFileUpload, this.progress);
     }
     //test upload file//

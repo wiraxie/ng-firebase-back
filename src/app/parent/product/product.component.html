@@ -11,7 +11,7 @@
       </div>
       <div class="modal-body">
 
-          <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm); upload()" ngNativeValidate>
+          <form #productForm="ngForm" (ngSubmit)="upload()" ngNativeValidate>
             <input type="hidden" name="$prdKey" #$prdKey="ngModel" [(ngModel)]="ProductService.selectedProduct.$prdKey">
             
             <div class="form-group">

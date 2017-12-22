@@ -5,7 +5,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'
 import * as firebase from 'firebase';
 
 import { Product } from './product'; //import class product
-import { FileUpload } from './file-upload';
+//import { FileUpload } from './file-upload';
 
 @Injectable()
 export class ProductService {
@@ -13,9 +13,8 @@ export class ProductService {
   //define list variable
   productList: AngularFireList<any>;
 
-  selectedProduct: Product = new Product ();
-  currentFileUpload: FileUpload;
-  //selectedProduct: Product;
+  variable: any;
+  selectedProduct: Product = new Product (this.variable);
 
   //dependency injection here
   constructor(private firebase: AngularFireDatabase) { }
@@ -37,22 +36,23 @@ export class ProductService {
   //template add
   insertProduct(Product: Product) 
   {
-    this.productList.push(
-    {
-      prdName: Product.prdName,
-      prdCategory: Product.prdCategory,
-      prdSup: Product.prdSup,
-      prdImage: Product.prdImage,
-      prdDescription: Product.prdDescription,
-    });
+  //  this.productList.push(
+  //  {
+  //   prdName: Product.prdName,
+  //   prdCategory: Product.prdCategory,
+  //   prdSup: Product.prdSup,
+  //   prdUrl: Product.prdUrl, // <--di sini
+  //   prdDescription: Product.prdDescription,
+  //   });
   }
-  //setelah jadi panggil di onSubmit()
-  //end of add
+   //setelah jadi panggil di onSubmit()
+   //end of add
 
   //template update
   updateProduct(prd : Product)
   {
-    this.productList.update(prd.$prdKey,{
+    this.productList.update(prd.$prdKey,
+    {
       prdName: prd.prdName,
       prdCategory: prd.prdCategory,
       prdSup: prd.prdSup,
@@ -70,11 +70,11 @@ export class ProductService {
   //end of delete
 
   //testing file upload//
-  private basePath = '/product';
+  private basePath = '/Product';
  
-  pushFileToStorage(fileUpload: FileUpload, progress: {percentage: number}) {
+  pushFileToStorage(Product: Product, progress: {percentage: number}) {
     const storageRef = firebase.storage().ref();
-    const uploadTask = storageRef.child(`${this.basePath}/${fileUpload.file.name}`).put(fileUpload.file);
+    const uploadTask = storageRef.child(`${this.basePath}/${Product.file.name}`).put(Product.file);
  
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
       (snapshot) => 
@@ -91,15 +91,22 @@ export class ProductService {
       () => 
       {
         // success
-        this.selectedProduct.prdImage = fileUpload.url = uploadTask.snapshot.downloadURL
-        this.saveFileData(fileUpload)
+        Product.prdName = Product.file.name,
+        Product.prdCategory = Product.file.name,
+        Product.prdSup = Product.file.name,
+        Product.prdDescription = Product.file.name,
+        Product.prdUrl = uploadTask.snapshot.downloadURL,
+        Product.prdImage = Product.file.name,
+        
+
+        this.saveFileData(Product)
       }
     );
   }
  
-  private saveFileData(fileUpload: FileUpload) 
+  private saveFileData(Product: Product) 
   {
-    this.firebase.list(`${this.basePath}/`).push(fileUpload);
+    this.firebase.list(`${this.basePath}/`).push(Product);
   }
  // ..testing file upload
 }

@@ -4,8 +4,14 @@ export class Product
     prdName: string;
     prdCategory: string; //Category
     prdSup: string; //supplier
-    prdImage: string;
-    // prdImage?: File;
-    // imageURL?: any;
     prdDescription: string;
+
+    prdImage: string; //name
+    prdUrl: string; //url
+    file: File;
+
+    constructor(file: File) 
+    {
+        this.file = file;
+    }
 }
